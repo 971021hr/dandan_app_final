@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 R.id.calendar, R.id.community, R.id.add, R.id.stats, R.id.setting)
                 .build();
 
-       // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
-       // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-       // NavigationUI.setupWithNavController(navView, navController);
+        // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
+        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // NavigationUI.setupWithNavController(navView, navController);
 
         //FragmentTransaction transaction = fragmentManager.beginTransaction();
         //transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case R.id.menu_setting: {
-                         transaction.replace(R.id.frame_layout, menu5Fragment).commitAllowingStateLoss();
-                         break;
+                        transaction.replace(R.id.frame_layout, menu5Fragment).commitAllowingStateLoss();
+                        break;
                     }
                 }
 
