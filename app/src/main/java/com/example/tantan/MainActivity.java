@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         BottomNavigationHelper.disableShiftMode(navView);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,menu1Fragment).commit();
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.menu_community, R.id.menu_add)
+                R.id.calendar, R.id.community, R.id.add, R.id.stats, R.id.setting)
                 .build();
 
        // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
