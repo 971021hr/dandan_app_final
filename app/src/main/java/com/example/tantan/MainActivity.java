@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Menu2Fragment menu2Fragment = new Menu2Fragment();
     private Menu3Fragment menu3Fragment = new Menu3Fragment();
     private Menu4Fragment menu4Fragment = new Menu4Fragment();
+    private Menu5Fragment menu5Fragment = new Menu5Fragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.frame_layout, menu4Fragment).commitAllowingStateLoss();
                         break;
                     }
-                    //case R.id.menu_setting: {
-                  //      transaction.replace(R.id.frame_layout, menu5Fragment).commitAllowingStateLoss();
-                  //      break;
-                   // }
+                    case R.id.menu_setting: {
+                         transaction.replace(R.id.frame_layout, menu5Fragment).commitAllowingStateLoss();
+                         break;
+                    }
                 }
 
                 return true;

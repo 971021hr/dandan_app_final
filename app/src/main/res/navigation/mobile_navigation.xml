@@ -34,4 +34,5 @@
         android:name="com.example.tantan.ui.notifications.NotificationsFragment"
         android:label="설정"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>

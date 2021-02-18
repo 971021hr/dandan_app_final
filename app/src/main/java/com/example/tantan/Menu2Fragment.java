@@ -8,6 +8,6 @@ import android.view.ViewGroup;
 
 public class Menu2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.framgment_menu2, container, false);
+        return inflater.inflate(R.layout.fragment_menu2, container, false);
     }
 }
