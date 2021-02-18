@@ -43,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
-        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        // NavigationUI.setupWithNavController(navView, navController);
-
-        //FragmentTransaction transaction = fragmentManager.beginTransaction();
-        //transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
-
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
