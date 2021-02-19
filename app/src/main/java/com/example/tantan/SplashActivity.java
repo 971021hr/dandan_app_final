@@ -1,4 +1,4 @@
-package com.example.tantan.ui;
+package com.example.tantan;
 
 import android.app.AppComponentFactory;
 import android.content.Intent;

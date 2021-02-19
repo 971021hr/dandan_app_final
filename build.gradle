@@ -22,3 +22,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//21.02.19 hr 커스텀 달력 패키지 추가
+allprojects {
+    repositories {
+        maven{url 'https://jitpack.io'}
+    }
+}
+//여기까지
