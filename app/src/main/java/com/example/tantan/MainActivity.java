@@ -6,13 +6,17 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import android.os.Bundle;
+
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+
+import com.example.tantan.ui.menu_add.Menu3Fragment;
+import com.example.tantan.ui.menu_calendar.Menu1Fragment;
+import com.example.tantan.ui.menu_community.Menu2Fragment;
+import com.example.tantan.ui.menu_setting.Menu5Fragment;
+import com.example.tantan.ui.menu_stats.Menu4Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
+        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // NavigationUI.setupWithNavController(navView, navController);
+
+        //FragmentTransaction transaction = fragmentManager.beginTransaction();
+        //transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
