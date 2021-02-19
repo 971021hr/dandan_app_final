@@ -50,20 +50,20 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/btn_run"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:onClick="btn_run1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/btn_run"/>
 
                 <ImageButton
+                    android:id="@+id/btn_meal"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:onClick="btn_meal1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/btn_meal"/>
 
@@ -76,20 +76,20 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/btn_body"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:onClick="btn_body1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/btn_body"/>
 
                 <ImageButton
+                    android:id="@+id/btn_water"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:onClick="btn_water1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/btn_water"/>
 
