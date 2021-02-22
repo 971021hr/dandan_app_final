@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
+
     // 4개의 메뉴에 들어갈 Fragment들
     private Menu1Fragment menu1Fragment = new Menu1Fragment();
     private Menu2Fragment menu2Fragment = new Menu2Fragment();

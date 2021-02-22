@@ -25,110 +25,176 @@
         </TextView>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/menu_community_main"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="식단 Tip" />
-
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:visibility="visible">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sample01"
-                android:text="sample01"
-                android:gravity="bottom|center"
-                android:layout_margin="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sample02"
-                android:text="sample02"
-                android:gravity="bottom|center"
-                android:layout_margin="10dp"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sample03"
-                android:text="sample03"
-                android:gravity="bottom|center"
-                android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="식단 Tip" />
 
 
-        </LinearLayout>
-    </HorizontalScrollView>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_community_detail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample01"
+                            android:text="sample01"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample02"
+                            android:text="sample02"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample03"
+                            android:text="sample03"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="운동 Tip" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample01"
+                            android:text="sample01"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample02"
+                            android:text="sample02"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sample03"
+                            android:text="sample03"
+                            android:gravity="bottom|center"
+                            android:layout_margin="10dp"/>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/menu_community_detail"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="운동 Tip" />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
-            <Button
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tip_detail_title"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sample01"
-                android:text="sample01"
-                android:gravity="bottom|center"
+                android:text="게시글 제목"
+                android:textStyle="bold"
+                android:textSize="20sp"
                 android:layout_margin="10dp"/>
 
-            <Button
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sample02"
-                android:text="sample02"
-                android:gravity="bottom|center"
-                android:layout_margin="10dp"/>
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp">
 
-            <Button
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_baseline_person_24"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/tip_detail_writer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작성자"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tip_detail_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sample03"
-                android:text="sample03"
-                android:gravity="bottom|center"
-                android:layout_margin="10dp"/>
+                android:text="2021년 02월 19일"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="어쩌구 저쩌구"/>
 
         </LinearLayout>
-    </HorizontalScrollView>
-
-        </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
