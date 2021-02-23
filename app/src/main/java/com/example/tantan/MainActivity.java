@@ -11,8 +11,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.tantan.ui.menu_add.Menu3Fragment;
+import com.example.tantan.ui.menu_add.menu_add;
 import com.example.tantan.ui.menu_calendar.Menu1Fragment;
 import com.example.tantan.ui.menu_community.Menu2Fragment;
 import com.example.tantan.ui.menu_setting.Menu5Fragment;
@@ -86,5 +88,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

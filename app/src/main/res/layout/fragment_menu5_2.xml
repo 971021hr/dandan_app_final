@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/Theme.Tantan">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="회원가입"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white">
+
+        </TextView>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout_menusetting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="2~6자 이내로 입력바랍니다."></EditText>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="중복 확인"></Button>
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="330dp"
+                android:hint="이메일 입력바랍니다."
+                android:layout_height="wrap_content"></EditText>
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:hint="영문, 숫자 혼합 8자 이상 입력바랍니다."></EditText>
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 확인"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:hint="다시 한번 입력바랍니다."></EditText>
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></CheckBox>
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:hint="이용약관 및 개인정보처리방침에 동의합니다."></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="bottom"
+            android:weightSum="1"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_marginRight="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="취소"></Button>
+            <Button
+                android:layout_marginLeft="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="다음"></Button>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
