@@ -215,6 +215,7 @@
                     android:gravity="center">
 
                     <Button
+                        android:id="@+id/btn_show_meal"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="식단, 물"
@@ -224,18 +225,21 @@
                         />
 
                     <Button
+                        android:id="@+id/btn_show_body"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="운동, 신체"
                         android:layout_marginLeft="0dp"
-                        android:background="@drawable/btn_right_round"/>
+                        android:background="@drawable/btn_right_round"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
                 <!--달력 > 디테일 > 버튼 영역-->
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:padding="20dp">
 
                     <!--식단, 물 버튼 누르면 표시되는 영역-->
                     <LinearLayout
@@ -245,11 +249,38 @@
                         android:id="@+id/layout_meal"
                         android:visibility="visible">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/layout_water"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="식단, 물 영역"
-                            android:textSize="20sp"/>
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:background="#f1f1f1"
+                            android:padding="10dp"
+                            android:layout_marginBottom="15dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ic_baseline_battery_full_24"/>
+
+                            <View
+                                android:layout_width="530px"
+                                android:layout_height="2px"
+                                android:background="#000000"
+                                android:layout_margin="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2000 ml"/>
+
+                        </LinearLayout>
+
+                        <ListView
+                            android:id="@+id/list_meal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
 
                     </LinearLayout>
 
@@ -264,7 +295,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="운동, 신체 영역"
+                            android:text="운동, 신체 영역입니다."
                             android:textSize="20sp"/>
 
                     </LinearLayout>
