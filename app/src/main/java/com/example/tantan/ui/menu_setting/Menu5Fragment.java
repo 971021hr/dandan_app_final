@@ -1,5 +1,6 @@
 package com.example.tantan.ui.menu_setting;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,15 +8,18 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.tantan.MainActivity;
 import com.example.tantan.R;
 
-public class Menu5Fragment extends Fragment {
+public class Menu5Fragment extends Fragment implements OnClickListener {
 
     TextView user_name;
     Button sign_btn;
@@ -25,6 +29,9 @@ public class Menu5Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu5, container, false);
+
+        sign_btn = (Button) view.findViewById(R.id.sign_btn);
+        sign_btn.setOnClickListener(this);
 
         user_name = (TextView) view.findViewById(R.id.user_name);
 
@@ -51,20 +58,20 @@ public class Menu5Fragment extends Fragment {
                 ListViewItem1 item = (ListViewItem1) adapter1.getItem(position);
                 switch (item.getTitle()) {
                     case "개인정보":
-                        //Intent private_intent = new Intent(Menu5Fragment.this, PrivatePage.class);
-                        //startActivity(private_intent);
+                        Intent private_intent = new Intent(getActivity(), PrivatePage.class);
+                        startActivity(private_intent);
                         break;
                     case "공지사항":
-                        //Intent notice_intent = new Intent(Menu5Fragment.this, NoticePage.class);
-                        //startActivity(notice_intent);
+                        Intent notice_intent = new Intent(getActivity(), NoticePage.class);
+                        startActivity(notice_intent);
                         break;
                     case "도움말":
-                        // help_intent = new Intent(Menu5Fragment.this, HelpPage.class);
-                        //startActivity(help_intent);
+                        Intent help_intent = new Intent(getActivity(), HelpPage.class);
+                        startActivity(help_intent);
                         break;
                     case "스마트 미러 연결":
-                        // connect_intent = new Intent(Menu5Fragment.this, ConnectPage.class);
-                        //startActivity(connect_intent);
+                        Intent connect_intent = new Intent(getActivity(), ConnectPage.class);
+                        startActivity(connect_intent);
                         break;
                 }
             }
@@ -87,25 +94,24 @@ public class Menu5Fragment extends Fragment {
                 ListViewItem1 item = (ListViewItem1) adapter2.getItem(position);
                 switch (item.getTitle()) {
                     case "개발자에게 피드백/문의":
-                        //Intent intent = new Intent(Menu5Fragment.this, PrivatePage.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(getActivity(), PrivatePage.class);
+                        startActivity(intent);
                         break;
                 }
             }
         });
 
-        sign_btn = (Button) view.findViewById(R.id.sign_btn);
         logout_btn = (Button) view.findViewById(R.id.logout_btn);
         logout_btn.setVisibility(View.GONE);
 
         return view;
     }
 
-    public void onBClick(View v) {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_btn:
-                //Intent intent = new Intent(this, LoginPage.class);
-                //startActivityForResult(intent, RESULT_CODE);
+                Intent intent = new Intent(getActivity(), LoginPage.class);
+                startActivityForResult(intent, RESULT_CODE);
                 break;
 
             case R.id.logout_btn:
@@ -115,11 +121,11 @@ public class Menu5Fragment extends Fragment {
                 break;
         }
     }
-/*
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case RESULT_CODE:
-                if (resultCode == RESULT_OK) {
+                if (resultCode == Activity.RESULT_OK) {
                     user_name.setText(data.getStringExtra("이름"));
                     sign_btn.setVisibility(View.GONE);
                     logout_btn.setVisibility(View.VISIBLE);
@@ -127,6 +133,4 @@ public class Menu5Fragment extends Fragment {
                 break;
         }
     }
-    
- */
 }

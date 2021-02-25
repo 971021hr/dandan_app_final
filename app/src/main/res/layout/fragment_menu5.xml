@@ -39,7 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:onClick="onBClick"
         android:padding="15dp"
         android:text="로그인 / 회원가입"
         android:textSize="20sp" />
@@ -55,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="#FFFFFF"
-        android:dividerHeight="0px" >
+        android:dividerHeight="0px">
 
     </ListView>
 
@@ -127,7 +126,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:onClick="onBClick"
         android:padding="15dp"
         android:text="로그아웃"
         android:textSize="20sp" />
