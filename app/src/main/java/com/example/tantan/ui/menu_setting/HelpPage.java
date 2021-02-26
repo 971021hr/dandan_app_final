@@ -12,8 +12,8 @@ public class HelpPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("도움말");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar actionBar = getSupportActionBar();
+       // actionBar.setTitle("도움말");
+        //actionBar.setDisplayHomeAsUpEnabled(true);
     }
 }

@@ -28,20 +28,19 @@
         android:id="@+id/layout_menusetting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_margin="20dp">
+        android:layout_margin="25dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="성별"
-            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
             android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:layout_marginTop="12dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -62,17 +61,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="생년월일"
-            android:textSize="18sp"
             android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
         <TextView
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="연령별 적정 몸무게 및 건강 상태 확인을 위해 수집합닌다."
-            android:textSize="11sp"/>
+            android:textSize="14sp"/>
         <LinearLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -81,6 +80,7 @@
                 android:id="@+id/spinner_birthyear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/add_year">
             </Spinner>
             <TextView
@@ -91,6 +91,7 @@
                 android:id="@+id/spinner_birthmonth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/add_month">
             </Spinner>
             <TextView
@@ -101,9 +102,9 @@
                 android:id="@+id/spinner_birthday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/add_day">
             </Spinner>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="키"
-            android:textSize="18sp"
             android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
         <LinearLayout
             android:layout_marginTop="12dp"
@@ -126,6 +127,7 @@
                 android:id="@+id/spinner_join_height1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/height1">
             </Spinner>
             <TextView
@@ -137,6 +139,7 @@
                 android:id="@+id/spinner_join_height2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/height2">
             </Spinner>
             <TextView
@@ -149,9 +152,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="몸무게"
-            android:textSize="18sp"
             android:textColor="#000000"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"/>
         <LinearLayout
             android:layout_marginTop="12dp"
             android:layout_width="wrap_content"
@@ -161,6 +164,7 @@
                 android:id="@+id/spinner_join_weight1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/weight">
             </Spinner>
             <TextView
@@ -172,6 +176,7 @@
                 android:id="@+id/spinner_join_weight2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
                 android:entries="@array/weight2">
             </Spinner>
             <TextView
@@ -180,24 +185,26 @@
                 android:text="kg"></TextView>
         </LinearLayout>
         <LinearLayout
-            android:gravity="bottom"
-            android:weightSum="1"
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
             <Button
-                android:layout_marginRight="5dp"
-                android:layout_width="0dp"
+                android:id="@+id/btn_joincancel2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="취소"></Button>
+                android:layout_weight="1"
+                android:text="이전"
+                android:textSize="20sp" />
+
             <Button
-                android:layout_marginLeft="5dp"
-                android:layout_width="0dp"
+                android:id="@+id/btn_joinfinish"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="완료"></Button>
+                android:layout_weight="1"
+                android:text="완료"
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

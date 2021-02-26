@@ -11,8 +11,8 @@ public class NoticePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notice_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("공지사항");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+       // ActionBar actionBar = getSupportActionBar();
+      //  actionBar.setTitle("공지사항");
+      //  actionBar.setDisplayHomeAsUpEnabled(true);
     }
 }

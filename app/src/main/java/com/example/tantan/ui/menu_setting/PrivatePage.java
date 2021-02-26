@@ -16,9 +16,9 @@ public class PrivatePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.private_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("개인정보");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+     //   ActionBar actionBar = getSupportActionBar();
+     //   actionBar.setTitle("개인정보");
+     //   actionBar.setDisplayHomeAsUpEnabled(true);
 
         ListView listview;
         ListViewAdapter2 adapter;

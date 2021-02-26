@@ -18,8 +18,9 @@ import android.widget.TextView;
 
 import com.example.tantan.MainActivity;
 import com.example.tantan.R;
+import com.example.tantan.ui.menu_add.menu_addrun;
 
-public class Menu5Fragment extends Fragment implements OnClickListener {
+public class Menu5Fragment extends Fragment {
 
     TextView user_name;
     Button sign_btn;
@@ -31,9 +32,19 @@ public class Menu5Fragment extends Fragment implements OnClickListener {
         View view = inflater.inflate(R.layout.fragment_menu5, container, false);
 
         sign_btn = (Button) view.findViewById(R.id.sign_btn);
-        sign_btn.setOnClickListener(this);
+       // sign_btn.setOnClickListener(this);
+        sign_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        user_name = (TextView) view.findViewById(R.id.user_name);
+                Intent intent = new Intent(getActivity(), LoginPage.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+       // user_name = (TextView) view.findViewById(R.id.user_name);
 
         ListView listview1;
         ListViewAdapter1 adapter1;
@@ -105,8 +116,10 @@ public class Menu5Fragment extends Fragment implements OnClickListener {
         logout_btn.setVisibility(View.GONE);
 
         return view;
+
     }
 
+    /*
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_btn:
@@ -121,12 +134,12 @@ public class Menu5Fragment extends Fragment implements OnClickListener {
                 break;
         }
     }
-
+*/
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case RESULT_CODE:
                 if (resultCode == Activity.RESULT_OK) {
-                    user_name.setText(data.getStringExtra("이름"));
+                    //user_name.setText(data.getStringExtra("이름"));
                     sign_btn.setVisibility(View.GONE);
                     logout_btn.setVisibility(View.VISIBLE);
                 }

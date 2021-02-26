@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import com.example.tantan.R;
 
-public class LoginPage extends AppCompatActivity implements View.OnClickListener {
+public class LoginPage extends AppCompatActivity {
 
     TextView join_text;
-    TextView findpw_text;
+    TextView pwd_email_text;
+    Button login_btn;
 
     final static int REQUEST_CODE = 0;
 
@@ -20,16 +22,42 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("로그인");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+
+       // ActionBar actionBar = getSupportActionBar();
+        //actionBar.setTitle("로그인");
+       //actionBar.setDisplayHomeAsUpEnabled(true);
+
+        login_btn = (Button) findViewById(R.id.login_btn);
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("이름", "차현경");
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
 
         join_text = (TextView) findViewById(R.id.join_text);
-        findpw_text = (TextView) findViewById(R.id.findpw_text);
-        join_text.setOnClickListener(this);
-        findpw_text.setOnClickListener(this);
-    }
+        pwd_email_text = (TextView) findViewById(R.id.findpw_text);
 
+        join_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent join_intent = new Intent(LoginPage.this, JoinPage.class);
+                startActivity(join_intent);
+            }
+        });
+        pwd_email_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
+                startActivity(pwd_email_intent);
+            }
+        });
+
+    }
+/*
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_btn:
@@ -45,10 +73,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.findpw_text:
-                Intent findpw_intent = new Intent(this, LoginPage.class);
+                Intent findpw_intent = new Intent(this, PassWordPage.class);
                 startActivity(findpw_intent);
                 break;
         }
-    }
+    }*/
 
 }

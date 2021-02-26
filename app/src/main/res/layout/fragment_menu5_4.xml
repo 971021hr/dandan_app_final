@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="회원가입"
+            android:text="비밀번호 찾기"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/white">
@@ -24,33 +25,47 @@
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/layout_menusetting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_margin="20dp">
-
+        android:layout_margin="20dp"
+        android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="비밀번호 찾기"
-            android:textSize="18sp"
             android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
+
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
+
             <EditText
-                android:layout_width="250dp"
+                android:id="@+id/editTextTextPersonName1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="이메일 입력바랍니다."></EditText>
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/text_box"
+                android:ems="10"
+                android:hint="이메일을 입력해주세요."
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="12sp" />
+
             <Button
-                android:layout_width="120dp"
+                android:id="@+id/btn_email"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="메일 발송"></Button>
+                android:layout_gravity="center"
+                android:text="메일 발송"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

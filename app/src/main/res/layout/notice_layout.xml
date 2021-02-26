@@ -2,21 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView11"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="#C8C8C8"
-        android:padding="10dp"
-        android:text="App 업데이트 내역 및 긴급 공지사항을 확인할 수 있습니다."
-        android:textColor="#F44336"
-        android:textSize="12sp" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/Theme.Tantan">
 
-    <ListView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="공지사항"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white">
+        </TextView>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#C8C8C8"
+            android:padding="10dp"
+            android:text="App 업데이트 내역 및 긴급 공지사항을 확인할 수 있습니다."
+            android:textColor="#F44336"
+            android:textSize="12sp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </LinearLayout>

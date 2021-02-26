@@ -11,8 +11,8 @@ public class ConnectPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("스마트 미러 연결");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+      //  ActionBar actionBar = getSupportActionBar();
+      //  actionBar.setTitle("스마트 미러 연결");
+      //  actionBar.setDisplayHomeAsUpEnabled(true);
     }
 }

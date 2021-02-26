@@ -20,8 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.menu_setting.PrivatePage" />
+        <activity android:name=".ui.menu_add.menu_addrun"/>
+        <activity android:name=".ui.menu_add.menu_addmeal"/>
+        <activity android:name=".ui.menu_add.menu_addbody"/>
+        <activity android:name=".ui.menu_add.menu_addwater"/>
+        <activity android:name=".ui.menu_setting.PrivatePage"/>
+        <activity android:name=".ui.menu_setting.LoginPage"/>
+        <activity android:name=".ui.menu_setting.ConnectPage"/>
+        <activity android:name=".ui.menu_setting.HelpPage"/>
+        <activity android:name=".ui.menu_setting.JoinPage"/>
+        <activity android:name=".ui.menu_setting.JoinPage2"/>
+        <activity android:name=".ui.menu_setting.NickNamePage"/>
+        <activity android:name=".ui.menu_setting.NoticePage"/>
+        <activity android:name=".ui.menu_setting.PassWordPage"/>
+        <activity android:name=".ui.menu_setting.PassWordFindPage"/>
     </application>
 
 </manifest>

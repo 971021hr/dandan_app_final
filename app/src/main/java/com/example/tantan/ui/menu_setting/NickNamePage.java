@@ -13,8 +13,8 @@ public class NickNamePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nickname_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("개인정보");
+        //ActionBar actionBar = getSupportActionBar();
+       // actionBar.setTitle("개인정보");
     }
 
     public void onBClick(View v) {
@@ -24,7 +24,7 @@ public class NickNamePage extends AppCompatActivity {
                 break;
 
             case R.id.finish_btn:
-                Toast.makeText(getApplicationContext(), "비밀번호가 변경되었습니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "닉네임이 변경되었습니다.", Toast.LENGTH_LONG).show();
                 finish();
                 break;
         }
