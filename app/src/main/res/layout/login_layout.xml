@@ -148,13 +148,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/Theme.Tantan">
-    </android.support.v7.widget.Toolbar>
-
 </LinearLayout>
