@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/background_orange">
+
+    <RelativeLayout
+        android:id="@+id/exercise_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/exerciseTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="헬스"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/img_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_timer_24"
+            android:layout_toLeftOf="@id/exerciseTime"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/exerciseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01:00:05"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/exerciseMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/exerciseTitle"
+            android:layout_marginTop="5dp"
+            android:text="덤벨 스쿼트"
+            android:background="@color/white"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

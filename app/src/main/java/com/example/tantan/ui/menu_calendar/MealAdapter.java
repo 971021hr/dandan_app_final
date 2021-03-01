@@ -13,17 +13,17 @@ import com.example.tantan.R;
 
 import java.util.ArrayList;
 
-public class menuAdapter extends BaseAdapter {
+public class MealAdapter extends BaseAdapter {
 
-    private ArrayList<menu1Item> menu1ItemArrayList = new ArrayList<menu1Item>();
+    private ArrayList<MealItem> mealItemArrayList = new ArrayList<MealItem>();
 
-    public menuAdapter(){
+    public MealAdapter(){
 
     }
 
     @Override
     public int getCount() {
-        return menu1ItemArrayList.size();
+        return mealItemArrayList.size();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class menuAdapter extends BaseAdapter {
 
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.menu1_detail,parent,false);
+            convertView = inflater.inflate(R.layout.menu1_detail_meal,parent,false);
         }
 
 
@@ -42,12 +42,12 @@ public class menuAdapter extends BaseAdapter {
         TextView mealTime = (TextView)convertView.findViewById(R.id.list_time);
         TextView mealMemo = (TextView)convertView.findViewById(R.id.list_memo);
 
-        menu1Item menu1Item = menu1ItemArrayList.get(position);
+        MealItem MealItem = mealItemArrayList.get(position);
 
 
-        mealImg.setImageDrawable(menu1Item.getMealImg());
-        mealTime.setText(menu1Item.getMealTime());
-        mealMemo.setText(menu1Item.getMealMemo());
+        mealImg.setImageDrawable(MealItem.getMealImg());
+        mealTime.setText(MealItem.getMealTime());
+        mealMemo.setText(MealItem.getMealMemo());
 
         return convertView;
     }
@@ -61,17 +61,17 @@ public class menuAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
 
-        return menu1ItemArrayList.get(position);
+        return mealItemArrayList.get(position);
     }
 
     public void addItem(Drawable mealIcon, String mealTime, String mealMemo){
-        menu1Item item = new menu1Item();
+        MealItem item = new MealItem();
 
         item.setMealImg(mealIcon);
         item.setMealTime(mealTime);
         item.setMealMemo(mealMemo);
 
-        menu1ItemArrayList.add(item);
+        mealItemArrayList.add(item);
     }
 
 

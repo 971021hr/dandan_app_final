@@ -16,5 +16,7 @@
     <color name="btn_default">#d6d7d7</color>
     <color name="btn_select">#4a4a4a</color>
 
+    <color name="background_orange">#fff9e8</color>
+
 
 </resources>

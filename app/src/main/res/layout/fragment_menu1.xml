@@ -220,8 +220,9 @@
                         android:layout_height="wrap_content"
                         android:text="식단, 물"
                         android:layout_marginRight="0dp"
-                        android:background="@drawable/btn_left_round"
-                        android:textColor="@color/white"
+                        android:background="@drawable/btn_left_corner"
+                        android:textColor="@color/btn_text_color"
+                        android:enabled="false"
                         />
 
                     <Button
@@ -230,8 +231,9 @@
                         android:layout_height="wrap_content"
                         android:text="운동, 신체"
                         android:layout_marginLeft="0dp"
-                        android:background="@drawable/btn_right_round"
-                        android:textColor="@color/black"/>
+                        android:background="@drawable/btn_right_corner"
+                        android:textColor="@color/btn_text_color"
+                        android:enabled="true"/>
 
                 </LinearLayout>
 
@@ -295,15 +297,48 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="운동, 신체 영역입니다."
-                            android:textSize="20sp"/>
+                            android:text="신체"/>
+
+                        <LinearLayout
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ListView
+                                android:id="@+id/list_body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="운동"/>
+
+                        <LinearLayout
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ListView
+                                android:layout_marginBottom="5dp"
+                                android:id="@+id/list_exercise"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:dividerHeight="5dp"
+                                android:divider="#00000000"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
-
 
                 </FrameLayout>
 
             </LinearLayout>
+
         </FrameLayout>
 
 

@@ -1,8 +1,6 @@
 package com.example.tantan.ui.menu_calendar;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,9 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,9 +19,7 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Menu1Fragment extends Fragment {
 
@@ -42,6 +36,8 @@ public class Menu1Fragment extends Fragment {
 
     LinearLayout layoutWater;
     ListView listMeal;
+    ListView listBody;
+    ListView listExercise;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -60,13 +56,31 @@ public class Menu1Fragment extends Fragment {
         layoutWater = (LinearLayout)calendarView.findViewById(R.id.layout_water);
         listMeal = (ListView)calendarView.findViewById(R.id.list_meal);
 
-        menuAdapter adapter1;
-        adapter1 = new menuAdapter();
-        listMeal.setAdapter(adapter1);
+        MealAdapter mealAdapter;
+        mealAdapter = new MealAdapter();
+        listMeal.setAdapter(mealAdapter);
 
-        adapter1.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 10:00","오늘 아점은 이걸 먹었다고 한다.");
-        adapter1.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 14:00","오늘 간식은 이걸 먹었다고 한다.");
-        adapter1.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 18:00","오늘 저녁은 이걸 먹었다고 한다.");
+        mealAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 10:00","오늘 아점은 이걸 먹었다고 한다.");
+        mealAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 14:00","오늘 간식은 이걸 먹었다고 한다.");
+        mealAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 18:00","오늘 저녁은 이걸 먹었다고 한다.");
+
+        /*21.03.01 운동, 신체버튼 부분 리스트뷰 추가*/
+        listBody = (ListView)calendarView.findViewById(R.id.list_body);
+        listExercise = (ListView)calendarView.findViewById(R.id.list_exercise);
+
+        BodyAdapter bodyAdapter= new BodyAdapter();
+        listBody.setAdapter(bodyAdapter);
+
+        bodyAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_person_24),"50.0 kg", "15.0 kg", "30.0 kg");
+
+        ExerciseAdapter exerciseAdapter = new ExerciseAdapter();
+        listExercise.setAdapter(exerciseAdapter);
+
+        exerciseAdapter.addItem("헬스","01:05:50","스쿼트 3set, 런지 5set, 풀업 3set");
+        exerciseAdapter.addItem("요가","00:40:33","다운독, 스쿼트, 기타 등등");
+
+
+
 
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -96,6 +110,9 @@ public class Menu1Fragment extends Fragment {
                 layoutMeal.setVisibility(View.VISIBLE);
                 layoutBody.setVisibility(View.INVISIBLE);
 
+                btnMeal.setEnabled(false);
+                btnBody.setEnabled(true);
+
             }
         });
 
@@ -105,6 +122,9 @@ public class Menu1Fragment extends Fragment {
             public void onClick(View v) {
                 layoutMeal.setVisibility(View.INVISIBLE);
                 layoutBody.setVisibility(View.VISIBLE);
+
+                btnMeal.setEnabled(true);
+                btnBody.setEnabled(false);
 
             }
         });

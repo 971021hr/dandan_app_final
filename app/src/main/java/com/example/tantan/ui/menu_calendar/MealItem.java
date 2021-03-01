@@ -2,7 +2,7 @@ package com.example.tantan.ui.menu_calendar;
 
 import android.graphics.drawable.Drawable;
 
-public class menu1Item {
+public class MealItem {
     private Drawable mealImg;
     private String mealTime;
     private String mealMemo;
