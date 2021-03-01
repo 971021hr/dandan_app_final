@@ -20,10 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--menu2-->
+        <activity android:name=".ui.menu_community.CommunityDetail"/>
+
+        <!--menu3-->
         <activity android:name=".ui.menu_add.menu_addrun"/>
         <activity android:name=".ui.menu_add.menu_addmeal"/>
         <activity android:name=".ui.menu_add.menu_addbody"/>
         <activity android:name=".ui.menu_add.menu_addwater"/>
+
+        <!--menu4-->
         <activity android:name=".ui.menu_setting.PrivatePage"/>
         <activity android:name=".ui.menu_setting.LoginPage"/>
         <activity android:name=".ui.menu_setting.ConnectPage"/>
