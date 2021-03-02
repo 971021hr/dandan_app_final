@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:text="식단"/>
 
-                <ListView
+                <com.baoyz.swipemenulistview.SwipeMenuListView
                     android:id="@+id/list_meal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ListView
+                    <com.baoyz.swipemenulistview.SwipeMenuListView
                         android:id="@+id/list_body"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <ListView
+                    <com.baoyz.swipemenulistview.SwipeMenuListView
                         android:layout_marginBottom="5dp"
                         android:id="@+id/list_exercise"
                         android:layout_width="match_parent"

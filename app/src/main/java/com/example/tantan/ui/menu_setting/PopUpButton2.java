@@ -3,15 +3,16 @@ package com.example.tantan.ui.menu_setting;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tantan.R;
 
-public class PopUpButton1 extends Activity {
+public class PopUpButton2 extends Activity {
 
     TextView txtText;
 
@@ -20,7 +21,7 @@ public class PopUpButton1 extends Activity {
         super.onCreate(savedInstanceState);
         //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.popup_button1_layout);
+        setContentView(R.layout.popup_button2_layout);
 
         //UI 객체생성
         txtText = (TextView)findViewById(R.id.txtText);
@@ -34,8 +35,10 @@ public class PopUpButton1 extends Activity {
     //확인 버튼 클릭
     public void mOnClose(View v){
         Intent intent = new Intent();
-        intent.putExtra("finish", "닫기");
-        //setResult(RESULT_OK, intent);
+        //intent.putExtra(, "1");
+        setResult(RESULT_OK, intent);
+        //Toast.makeText(getApplicationContext(), "응.", Toast.LENGTH_LONG).show();
+        //startActivity(intent);
         finish();
     }
 

@@ -14,6 +14,8 @@ import com.example.tantan.R;
 
 public class FeedBackPage extends AppCompatActivity {
 
+    private static final int REQUEST_CODE = 0;
+
     Spinner fd_spinner;
     String[] fd_item;
     TextView txtResult;
@@ -54,8 +56,42 @@ public class FeedBackPage extends AppCompatActivity {
                 Intent intent2 = new Intent(this, PopUpButton1.class);
                 intent2.putExtra("data", "문의가 접수되었습니다.");
                 startActivity(intent2);
+
+                Intent intent = getIntent();
+                if (!intent.equals(null)) {
+                    //Toast.makeText(getApplicationContext(), ".", Toast.LENGTH_LONG).show();
+                    String finish = intent.getStringExtra("finish");
+                    if (finish.equals("닫기"))
+                        finish();
+                }
+                //finish();
+                break;
+        }
+
+        /*
+        if (this.getIntent().equals(null)) {
+            Toast.makeText(getApplicationContext(), ".", Toast.LENGTH_LONG).show();
+            Intent intent = getIntent();
+            String finish = intent.getStringExtra("finish");
+            if (finish.equals("닫기"))
                 finish();
+        }
+
+         */
+    }
+
+    /*
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (requestCode == RESULT_OK) {
+                    Toast.makeText(getApplicationContext(), "전송되었습니다.", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                Toast.makeText(getApplicationContext(), Integer.toString(requestCode), Toast.LENGTH_LONG).show();
                 break;
         }
     }
+
+     */
 }
