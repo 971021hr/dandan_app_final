@@ -24,186 +24,183 @@
         </TextView>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/layout_menuadd1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_margin="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="운동 추가"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
         <LinearLayout
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinner_year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/add_year">
-            </Spinner>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="년"></TextView>
-            <Spinner
-                android:id="@+id/spinner_month"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/add_month">
-            </Spinner>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="월"></TextView>
-            <Spinner
-                android:id="@+id/spinner_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/add_day">
-            </Spinner>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일"></TextView>
-        </LinearLayout>
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:text="운동 시간"></TextView>
-
-        <LinearLayout
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/spinner_h"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/hours">
-            </Spinner>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="시"></TextView>
-            <Spinner
-                android:id="@+id/spinner_m"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/minutes">
-            </Spinner>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="분"></TextView>
-            <Spinner
-                android:id="@+id/spinner_s"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/seconds">
-            </Spinner>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="초"></TextView>
-        </LinearLayout>
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:text="운동 종목"></TextView>
-        <LinearLayout
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/ex_sort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/ex_sort">
-
-            </Spinner>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="직접 입력하세요."></EditText>
-        </LinearLayout>
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:text="운동 내용"></TextView>
-        <LinearLayout
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/text_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="검색 또는 직접 입력하세요."></EditText>
-            <Button
-                android:id="@+id/btn_ex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="확인">
-
-            </Button>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/text_output"
-            android:background="@color/yellow"
+            android:id="@+id/layout_menuadd1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </TextView>
-        <LinearLayout
-            android:gravity="bottom"
-            android:weightSum="1"
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <Button
-                android:id="@+id/btn_runcancel"
-                android:layout_marginRight="5dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="취소"></Button>
-            <Button
-                android:layout_marginLeft="5dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="확인"></Button>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_margin="15dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동 추가"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/add_year">
+                </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="년"></TextView>
+                <Spinner
+                    android:id="@+id/spinner_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/add_month">
+                </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="월"></TextView>
+                <Spinner
+                    android:id="@+id/spinner_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/add_day">
+                </Spinner>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="운동 시간"></TextView>
+
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Spinner
+                    android:id="@+id/spinner_h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/hours">
+                </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시"></TextView>
+                <Spinner
+                    android:id="@+id/spinner_m"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/minutes">
+                </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="분"></TextView>
+                <Spinner
+                    android:id="@+id/spinner_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/seconds">
+                </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="초"></TextView>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="운동 종목"></TextView>
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Spinner
+                    android:id="@+id/ex_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/ex_sort">
+
+                </Spinner>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="직접 입력하세요."></EditText>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="운동 내용"></TextView>
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/text_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="검색 또는 직접 입력하세요."></EditText>
+                <Button
+                    android:id="@+id/btn_ex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="확인">
+
+                </Button>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/text_output"
+                android:background="@color/yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+            <LinearLayout
+                android:gravity="bottom"
+                android:weightSum="1"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/btn_runcancel"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="취소"></Button>
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="확인"></Button>
+            </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
-
 </LinearLayout>
