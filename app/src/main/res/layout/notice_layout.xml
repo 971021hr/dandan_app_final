@@ -32,7 +32,7 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:background="#C8C8C8"
             android:padding="10dp"
             android:text="App 업데이트 내역 및 긴급 공지사항을 확인할 수 있습니다."
@@ -40,7 +40,17 @@
             android:textSize="12sp" />
 
         <ListView
+            android:id="@+id/notice_list1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_box" >
+
+        </ListView>
+
+        <ListView
+            android:id="@+id/notice_list2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_box" />
     </LinearLayout>
 </LinearLayout>

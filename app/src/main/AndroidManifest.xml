@@ -41,6 +41,10 @@
         <activity android:name=".ui.menu_setting.NoticePage"/>
         <activity android:name=".ui.menu_setting.PassWordPage"/>
         <activity android:name=".ui.menu_setting.PassWordFindPage"/>
+        <activity android:name=".ui.menu_setting.FeedBackPage"/>
+        <activity android:name=".ui.menu_setting.Help2Page"/>
+        <activity android:name=".ui.menu_setting.Notice2Page"/>
+        <activity android:name=".ui.menu_setting.PopUpButton1" android:theme="@android:style/Theme.Dialog"/>
     </application>
 
 </manifest>

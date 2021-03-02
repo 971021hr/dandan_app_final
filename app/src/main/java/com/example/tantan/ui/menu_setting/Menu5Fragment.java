@@ -105,7 +105,7 @@ public class Menu5Fragment extends Fragment {
                 ListViewItem1 item = (ListViewItem1) adapter2.getItem(position);
                 switch (item.getTitle()) {
                     case "개발자에게 피드백/문의":
-                        Intent intent = new Intent(getActivity(), PrivatePage.class);
+                        Intent intent = new Intent(getActivity(), FeedBackPage.class);
                         startActivity(intent);
                         break;
                 }
