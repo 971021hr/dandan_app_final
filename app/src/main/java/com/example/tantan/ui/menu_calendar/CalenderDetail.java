@@ -30,6 +30,11 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.example.tantan.ui.menu_add.menu_addbody;
+import com.example.tantan.ui.menu_add.menu_addmeal;
+import com.example.tantan.ui.menu_add.menu_addrun;
+import com.example.tantan.ui.menu_setting.JoinPage;
+import com.example.tantan.ui.menu_setting.JoinPage2;
 
 public class CalenderDetail extends AppCompatActivity{
 
@@ -151,7 +156,7 @@ public class CalenderDetail extends AppCompatActivity{
                 switch (index) {
                     case 0:
                         // open
-                        open(item);
+                        open2(item);
                         break;
                     case 1:
                         // delete
@@ -197,7 +202,7 @@ public class CalenderDetail extends AppCompatActivity{
                 switch (index) {
                     case 0:
                         // open
-                        open(item);
+                        open3(item);
                         break;
                     case 1:
                         // delete
@@ -251,6 +256,10 @@ public class CalenderDetail extends AppCompatActivity{
     }
 
     private void open(ApplicationInfo item) {
+        Intent update_intent = new Intent(CalenderDetail.this, menu_addmeal.class);
+        startActivity(update_intent);
+        finish();
+    }
         // open app
         /*
         Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
@@ -274,8 +283,17 @@ public class CalenderDetail extends AppCompatActivity{
         }
 
          */
-    }
+        private void open2(ApplicationInfo item) {
+            Intent update_intent = new Intent(CalenderDetail.this, menu_addbody.class);
+            startActivity(update_intent);
+            finish();
+        }
 
+    private void open3(ApplicationInfo item) {
+        Intent update_intent = new Intent(CalenderDetail.this, menu_addrun.class);
+        startActivity(update_intent);
+        finish();
+    }
     /*
     class AppAdapter extends BaseSwipeListAdapter {
 

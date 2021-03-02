@@ -58,10 +58,8 @@ public class Menu1Fragment extends Fragment {
                 intent.putExtra("날짜", selectFormatDate);
                 startActivity(intent);
 
-
             }
         });
-
 
         return calendarView;
     }

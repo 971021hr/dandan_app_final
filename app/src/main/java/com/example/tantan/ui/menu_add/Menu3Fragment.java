@@ -37,7 +37,6 @@ public class Menu3Fragment extends Fragment {
 //        menu_layout_meal = (LinearLayout) rootView.findViewById(R.id.layout_menuadd2);
 //        menu_layout_body = (LinearLayout) rootView.findViewById(R.id.layout_menuadd3);
 //        menu_layout_water = (LinearLayout) rootView.findViewById(R.id.layout_menuadd4);
-
 //        run_cancel = (Button) rootView.findViewById(R.id.cancel1);
 
         btn_run.setOnClickListener(new View.OnClickListener() {
