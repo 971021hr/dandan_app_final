@@ -1,6 +1,7 @@
 package com.example.tantan.ui.menu_calendar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -13,10 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.tantan.DataEvent;
 import com.example.tantan.R;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,8 +31,9 @@ public class Menu1Fragment extends Fragment {
 
     private static MaterialCalendarView materialCalendarView;
     Date selectDate;
+    String selectFormatDate;
     LinearLayout calendarMain;
-    LinearLayout calendarDetail;
+/*    LinearLayout calendarDetail;
     LinearLayout layoutMeal;
     LinearLayout layoutBody;
     TextView txtSelect;
@@ -37,7 +42,7 @@ public class Menu1Fragment extends Fragment {
     LinearLayout layoutWater;
     ListView listMeal;
     ListView listBody;
-    ListView listExercise;
+    ListView listExercise;*/
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -46,6 +51,7 @@ public class Menu1Fragment extends Fragment {
 
         materialCalendarView = (MaterialCalendarView)calendarView.findViewById(R.id.calendarView);
         calendarMain = (LinearLayout)calendarView.findViewById(R.id.calendar_main);
+/*
         calendarDetail = (LinearLayout)calendarView.findViewById(R.id.calendar_detail);
         layoutMeal = (LinearLayout)calendarView.findViewById(R.id.layout_meal);
         layoutBody = (LinearLayout)calendarView.findViewById(R.id.layout_body);
@@ -55,7 +61,9 @@ public class Menu1Fragment extends Fragment {
 
         layoutWater = (LinearLayout)calendarView.findViewById(R.id.layout_water);
         listMeal = (ListView)calendarView.findViewById(R.id.list_meal);
+*/
 
+/*
         MealAdapter mealAdapter;
         mealAdapter = new MealAdapter();
         listMeal.setAdapter(mealAdapter);
@@ -64,7 +72,9 @@ public class Menu1Fragment extends Fragment {
         mealAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 14:00","오늘 간식은 이걸 먹었다고 한다.");
         mealAdapter.addItem(ContextCompat.getDrawable(getActivity(),R.drawable.ic_baseline_fastfood_24),"AM 18:00","오늘 저녁은 이걸 먹었다고 한다.");
 
-        /*21.03.01 운동, 신체버튼 부분 리스트뷰 추가*/
+        */
+/*21.03.01 운동, 신체버튼 부분 리스트뷰 추가*//*
+
         listBody = (ListView)calendarView.findViewById(R.id.list_body);
         listExercise = (ListView)calendarView.findViewById(R.id.list_exercise);
 
@@ -78,6 +88,7 @@ public class Menu1Fragment extends Fragment {
 
         exerciseAdapter.addItem("헬스","01:05:50","스쿼트 3set, 런지 5set, 풀업 3set");
         exerciseAdapter.addItem("요가","00:40:33","다운독, 스쿼트, 기타 등등");
+*/
 
 
 
@@ -92,21 +103,28 @@ public class Menu1Fragment extends Fragment {
                 selectDate = date.getDate();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.EEE");
                 String formatDate = sdf.format(selectDate);
+                selectFormatDate = formatDate;
 
-                txtSelect.setText(formatDate);
+                EventBus.getDefault().post(new DataEvent(selectFormatDate));
+
+/*                txtSelect.setText(formatDate);
 
                 calendarMain.setVisibility(View.INVISIBLE);
-                calendarDetail.setVisibility(View.VISIBLE);
+                calendarDetail.setVisibility(View.VISIBLE);*/
+
+                Intent intent = new Intent(getActivity(),CalenderDetail.class);
+                startActivity(intent);
 
 
             }
         });
 
+/*
         btnMeal.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                /*화면전환*/
+
                 layoutMeal.setVisibility(View.VISIBLE);
                 layoutBody.setVisibility(View.INVISIBLE);
 
@@ -128,6 +146,7 @@ public class Menu1Fragment extends Fragment {
 
             }
         });
+*/
 
         return calendarView;
     }
