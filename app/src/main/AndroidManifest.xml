@@ -21,6 +21,9 @@
             </intent-filter>
         </activity>
 
+        <!--menu1-->
+        <activity android:name=".ui.menu_calendar.CalenderDetail"/>
+
         <!--menu2-->
         <activity android:name=".ui.menu_community.CommunityDetail"/>
 
