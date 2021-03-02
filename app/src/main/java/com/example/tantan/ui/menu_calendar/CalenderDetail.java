@@ -19,9 +19,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class CalenderDetail extends AppCompatActivity {
-
-    String selectDate;
+public class CalenderDetail extends AppCompatActivity{
 
     TextView txtSelect;
     Button btnMeal, btnBody;
@@ -37,8 +35,6 @@ public class CalenderDetail extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu1_calender_detail);
-
-        EventBus.getDefault().register(this);
 
         txtSelect = (TextView)findViewById(R.id.txt_select);
 
@@ -105,23 +101,4 @@ public class CalenderDetail extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        try {
-            EventBus.getDefault().register(this);
-        }catch (Exception e){}
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void dataEvent(DataEvent dataEvent){
-        selectDate = dataEvent.helloEventBus;
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
 }
