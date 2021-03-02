@@ -1,6 +1,7 @@
 package com.example.tantan.ui.menu_calendar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -41,7 +42,9 @@ public class CalenderDetail extends AppCompatActivity {
 
         txtSelect = (TextView)findViewById(R.id.txt_select);
 
-        txtSelect.setText(selectDate);
+        Intent intent = getIntent();
+        String select_date = intent.getStringExtra("날짜");
+        txtSelect.setText(select_date);
 
         btnMeal = (Button)findViewById(R.id.btn_show_meal);
         btnBody = (Button)findViewById(R.id.btn_show_body);

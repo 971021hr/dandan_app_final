@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tantan.R;
 
@@ -39,6 +40,7 @@ public class FeedBackPage extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void mOnClick(View v){
@@ -49,9 +51,10 @@ public class FeedBackPage extends AppCompatActivity {
 
             case R.id.fd_send:
                 //데이터 담아서 팝업(액티비티) 호출
-                Intent intent = new Intent(this, PopUpButton1.class);
-                intent.putExtra("data", "문의가 접수되었습니다.");
-                startActivity(intent);
+                Intent intent2 = new Intent(this, PopUpButton1.class);
+                intent2.putExtra("data", "문의가 접수되었습니다.");
+                startActivity(intent2);
+                finish();
                 break;
         }
     }

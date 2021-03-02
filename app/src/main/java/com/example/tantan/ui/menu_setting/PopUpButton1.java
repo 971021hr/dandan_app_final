@@ -3,6 +3,7 @@ package com.example.tantan.ui.menu_setting;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -32,10 +33,6 @@ public class PopUpButton1 extends Activity {
 
     //확인 버튼 클릭
     public void mOnClose(View v){
-        //데이터 전달하기
-        //Intent intent = new Intent(this, Menu5Fragment.class);
-        //startActivity(intent);
-        //액티비티(팝업) 닫기
         finish();
     }
 

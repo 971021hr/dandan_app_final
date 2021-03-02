@@ -113,6 +113,7 @@ public class Menu1Fragment extends Fragment {
                 calendarDetail.setVisibility(View.VISIBLE);*/
 
                 Intent intent = new Intent(getActivity(),CalenderDetail.class);
+                intent.putExtra("날짜", selectFormatDate);
                 startActivity(intent);
 
 
