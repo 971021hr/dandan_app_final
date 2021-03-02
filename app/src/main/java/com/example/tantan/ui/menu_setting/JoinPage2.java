@@ -30,19 +30,24 @@ public class JoinPage2  extends AppCompatActivity {
         join_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(JoinPage2.this);
-                dlg.setTitle("단단");
-                dlg.setMessage("축하합니다! 회원가입이 완료되었습니다.");
-                dlg.setIcon(R.drawable.ic_baseline_mood_24);
-                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent join_intent = new Intent(JoinPage2.this, LoginPage.class);
-                        startActivity(join_intent);
-                        finish();
-                    }
-                });
-                dlg.show();
+                Intent join_intent = new Intent(JoinPage2.this, PopUpButton1.class);
+                join_intent.putExtra("data", "축하합니다! 회원가입이 완료되었습니다.");
+                startActivity(join_intent);
+                finish();
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(JoinPage2.this);
+//                dlg.setTitle("단단");
+//                dlg.setMessage("축하합니다! 회원가입이 완료되었습니다.");
+//                dlg.setIcon(R.drawable.ic_baseline_mood_24);
+//                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+////                        Intent join_intent = new Intent(JoinPage2.this, LoginPage.class);
+////                        join_intent.putExtra("finish", "1");
+////                        startActivity(join_intent);
+//                        finish();
+//                    }
+//                });
+//                dlg.show();
             }
         });
 

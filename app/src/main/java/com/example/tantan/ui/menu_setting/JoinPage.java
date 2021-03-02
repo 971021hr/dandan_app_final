@@ -17,6 +17,13 @@ public class JoinPage extends AppCompatActivity {
 
         //ActionBar ab = getSupportActionBar();
        // ab.setTitle("회원가입");
+//
+//        if(getIntent().getData() != null) {
+//            Intent intent1 = getIntent();
+//            String finish = intent1.getStringExtra("finish");
+//            if(finish.equals("1"))
+//                finish();
+//        }
 
         Button btn_joinnext = (Button)findViewById(R.id.btn_joinnext);
         btn_joinnext.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +31,7 @@ public class JoinPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent join_intent = new Intent(JoinPage.this, JoinPage2.class);
                 startActivity(join_intent);
+                finish();
             }
         });
 

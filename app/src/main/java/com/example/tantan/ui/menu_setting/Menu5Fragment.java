@@ -43,7 +43,6 @@ public class Menu5Fragment extends Fragment {
             }
         });
 
-
        // user_name = (TextView) view.findViewById(R.id.user_name);
 
         ListView listview1;
