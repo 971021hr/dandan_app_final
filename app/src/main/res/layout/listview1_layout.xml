@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/list_icon"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="10dp"
         app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <TextView
@@ -29,8 +30,8 @@
 
     <ImageView
         android:id="@+id/list_point1"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_gravity="right"
         android:padding="10dp"
         app:srcCompat="@drawable/ic_baseline_navigate_next_24" />

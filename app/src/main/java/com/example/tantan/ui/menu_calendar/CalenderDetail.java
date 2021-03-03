@@ -254,6 +254,7 @@ public class CalenderDetail extends AppCompatActivity{
             }
         });
 
+        //선택한 날짜 txt 누르면 캘린더뷰로 이동
         txtSelect.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -267,24 +268,28 @@ public class CalenderDetail extends AppCompatActivity{
         super.onBackPressed();
     }
 
+    //식단 수정
     private void open(ApplicationInfo item) {
         Intent update_intent = new Intent(CalenderDetail.this, menu_addmeal.class);
         startActivity(update_intent);
         finish();
     }
 
+    //신체 수정
     private void open2(ApplicationInfo item) {
         Intent update_intent = new Intent(CalenderDetail.this, menu_addbody.class);
         startActivity(update_intent);
         finish();
     }
 
+    //운동 수정
     private void open3(ApplicationInfo item) {
         Intent update_intent = new Intent(CalenderDetail.this, menu_addrun.class);
         startActivity(update_intent);
         finish();
     }
 
+    //list 여백주기
     private int dp2px(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());

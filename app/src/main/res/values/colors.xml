@@ -12,6 +12,7 @@
 
     <color name="purple_main">#8a51f2</color>
     <color name="purple_sub">#9e70f2</color>
+    <color name="yellow_point">#FFAA38</color>
 
     <color name="btn_default">#d6d7d7</color>
     <color name="btn_select">#4a4a4a</color>
