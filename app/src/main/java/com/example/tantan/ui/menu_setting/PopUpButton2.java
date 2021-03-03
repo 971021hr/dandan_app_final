@@ -34,12 +34,17 @@ public class PopUpButton2 extends Activity {
 
     //확인 버튼 클릭
     public void mOnClose(View v){
-        Intent intent = new Intent();
-        //intent.putExtra(, "1");
-        setResult(RESULT_OK, intent);
-        //Toast.makeText(getApplicationContext(), "응.", Toast.LENGTH_LONG).show();
-        //startActivity(intent);
-        finish();
+        switch (v.getId()) {
+            case R.id.leave_no:
+                finish();
+                break;
+
+            case R.id.leave_yes:
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+        }
     }
 
     @Override

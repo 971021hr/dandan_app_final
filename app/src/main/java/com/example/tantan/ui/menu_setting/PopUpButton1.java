@@ -26,16 +26,15 @@ public class PopUpButton1 extends Activity {
         txtText = (TextView)findViewById(R.id.txtText);
 
         //데이터 가져오기
-        Intent intent = getIntent();
-        String data = intent.getStringExtra("data");
+        Intent intent1 = getIntent();
+        String data = intent1.getStringExtra("data");
         txtText.setText(data);
     }
 
     //확인 버튼 클릭
     public void mOnClose(View v){
-        Intent intent = new Intent();
-        intent.putExtra("finish", "닫기");
-        //setResult(RESULT_OK, intent);
+        Intent intent2 = new Intent();
+        setResult(RESULT_OK, intent2);
         finish();
     }
 

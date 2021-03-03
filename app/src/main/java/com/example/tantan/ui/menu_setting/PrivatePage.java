@@ -55,37 +55,16 @@ public class PrivatePage extends AppCompatActivity {
                         intent2.putExtra("data", "정말로 탈퇴하시겠습니까? 힝구");
                         startActivityForResult(intent2, REQUEST_CODE);
                         break;
-                        //Toast.makeText(getApplicationContext(), "탈퇴되었습니다.", Toast.LENGTH_LONG).show();
-//                        if (REQUEST_CODE == RESULT_OK) {
-//                            Toast.makeText(getApplicationContext(), "탈퇴되었습니다.", Toast.LENGTH_LONG).show();
-//                            finish();
-//                        } else {
-//
-//                        }
-//                        break;
                 }
             }
         });
-
-        /*
-        if (this.getIntent().getData() != null) {
-            Intent intent = getIntent();
-            String finish = intent.getStringExtra("finish");
-            if (finish.equals("1"))
-                finish();
-        }
-
-         */
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CODE:
-                if (requestCode != RESULT_OK) {
-                    Toast.makeText(getApplicationContext(), "탈퇴되었습니다.", Toast.LENGTH_LONG).show();
+                if (resultCode == RESULT_OK)
                     finish();
-                }
-                Toast.makeText(getApplicationContext(), Integer.toString(requestCode), Toast.LENGTH_LONG).show();
                 break;
         }
     }

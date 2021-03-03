@@ -50,11 +50,11 @@
             android:text="하단 목록에서 스마트 미러를 선택해주세요."
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView17"
+        <ListView
+            android:id="@+id/connect_sm_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#EFE6FF"
             android:padding="10dp" />
+
     </LinearLayout>
 </LinearLayout>
