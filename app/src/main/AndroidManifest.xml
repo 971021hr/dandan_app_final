@@ -49,6 +49,7 @@
         <activity android:name=".ui.menu_setting.Notice2Page"/>
         <activity android:name=".ui.menu_setting.PopUpButton1" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".ui.menu_setting.PopUpButton2" android:theme="@android:style/Theme.Dialog"/>
+
     </application>
 
 </manifest>

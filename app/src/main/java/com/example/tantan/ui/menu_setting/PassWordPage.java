@@ -16,6 +16,12 @@ public class PassWordPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.password_layout);
 
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle("개인정보");
+
     //    ActionBar actionBar = getSupportActionBar();
    //     actionBar.setTitle("개인정보");
 

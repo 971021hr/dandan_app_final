@@ -11,9 +11,17 @@ import com.example.tantan.R;
 
 public class JoinPage extends AppCompatActivity {
 
+    private static final int REQUEST_CODE = 0;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_layout);
+
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle("회원가입");
 
         //ActionBar ab = getSupportActionBar();
        // ab.setTitle("회원가입");
@@ -30,8 +38,7 @@ public class JoinPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent join_intent = new Intent(JoinPage.this, JoinPage2.class);
-                startActivity(join_intent);
-                finish();
+                startActivityForResult(join_intent, REQUEST_CODE);
             }
         });
 
@@ -45,5 +52,14 @@ public class JoinPage extends AppCompatActivity {
 
     }
     public void onBackPressed(){super.onBackPressed();}
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == RESULT_OK)
+                    finish();
+                break;
+        }
+    }
 
 }

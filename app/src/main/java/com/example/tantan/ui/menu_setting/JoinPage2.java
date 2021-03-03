@@ -14,9 +14,17 @@ import com.example.tantan.R;
 
 public class JoinPage2  extends AppCompatActivity {
 
+    private static final int REQUEST_CODE = 0;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_menu5_3);
+
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle("회원가입");
 
         Button join_cancel = (Button) findViewById(R.id.btn_joincancel2);
         join_cancel.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +40,8 @@ public class JoinPage2  extends AppCompatActivity {
             public void onClick(View v) {
                 Intent join_intent = new Intent(JoinPage2.this, PopUpButton1.class);
                 join_intent.putExtra("data", "축하합니다! 회원가입이 완료되었습니다.");
-                startActivity(join_intent);
-                finish();
+                startActivityForResult(join_intent, REQUEST_CODE);
+                //finish();
 //                AlertDialog.Builder dlg = new AlertDialog.Builder(JoinPage2.this);
 //                dlg.setTitle("단단");
 //                dlg.setMessage("축하합니다! 회원가입이 완료되었습니다.");
@@ -53,5 +61,17 @@ public class JoinPage2  extends AppCompatActivity {
 
     }
     public void onBackPressed(){super.onBackPressed();}
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Intent intent = new Intent();
+
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == RESULT_OK)
+                    setResult(RESULT_OK, intent);
+                    finish();
+                break;
+        }
+    }
 
 }

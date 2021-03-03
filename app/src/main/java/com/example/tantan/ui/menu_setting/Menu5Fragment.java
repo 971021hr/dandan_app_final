@@ -60,7 +60,7 @@ public class Menu5Fragment extends Fragment {
         adapter1.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_question_answer_24),
                 "도움말", ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_navigate_next_24));
         adapter1.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_bluetooth_audio_24),
-                "스마트 미러 연결", ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_navigate_next_24));
+                "스마트미러 연결", ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_navigate_next_24));
 
         listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class Menu5Fragment extends Fragment {
                         Intent help_intent = new Intent(getActivity(), HelpPage.class);
                         startActivity(help_intent);
                         break;
-                    case "스마트 미러 연결":
+                    case "스마트미러 연결":
                         Intent connect_intent = new Intent(getActivity(), ConnectPage.class);
                         startActivity(connect_intent);
                         break;

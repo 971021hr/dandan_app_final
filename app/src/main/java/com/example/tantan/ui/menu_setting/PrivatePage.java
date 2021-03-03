@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.tantan.R;
 
@@ -21,9 +23,18 @@ public class PrivatePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.private_layout);
 
-     //   ActionBar actionBar = getSupportActionBar();
-     //   actionBar.setTitle("개인정보");
-     //   actionBar.setDisplayHomeAsUpEnabled(true);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("개인정보");
+
+        /*
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("개인정보");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+         */
 
         ListView listview;
         ListViewAdapter2 adapter;
@@ -67,5 +78,16 @@ public class PrivatePage extends AppCompatActivity {
                     finish();
                 break;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
