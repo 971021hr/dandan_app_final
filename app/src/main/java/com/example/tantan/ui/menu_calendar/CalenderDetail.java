@@ -189,8 +189,8 @@ public class CalenderDetail extends AppCompatActivity{
         ExerciseAdapter exerciseAdapter = new ExerciseAdapter();
         listExercise.setAdapter(exerciseAdapter);
 
-        exerciseAdapter.addItem("헬스","01:05:50","스쿼트 3set, 런지 5set, 풀업 3set");
-        exerciseAdapter.addItem("요가","00:40:33","다운독, 스쿼트, 기타 등등");
+        exerciseAdapter.addItem("헬스","01:05:50"," ·스쿼트 3set \n ·런지 5set \n ·풀업 3set");
+        exerciseAdapter.addItem("요가","00:40:33"," ·다운독 \n ·스쿼트 \n ·기타 등등");
 
         listExercise.setMenuCreator(creator);
 
@@ -253,6 +253,18 @@ public class CalenderDetail extends AppCompatActivity{
 
             }
         });
+
+        txtSelect.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    public void onBackPressed(){
+
+        super.onBackPressed();
     }
 
     private void open(ApplicationInfo item) {
@@ -260,106 +272,19 @@ public class CalenderDetail extends AppCompatActivity{
         startActivity(update_intent);
         finish();
     }
-        // open app
-        /*
-        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
-        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        resolveIntent.setPackage(item.packageName);
-        List<ResolveInfo> resolveInfoList = getPackageManager()
-                .queryIntentActivities(resolveIntent, 0);
-        if (resolveInfoList != null && resolveInfoList.size() > 0) {
-            ResolveInfo resolveInfo = resolveInfoList.get(0);
-            String activityPackageName = resolveInfo.activityInfo.packageName;
-            String className = resolveInfo.activityInfo.name;
 
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            ComponentName componentName = new ComponentName(
-                    activityPackageName, className);
-
-            intent.setComponent(componentName);
-            startActivity(intent);
-
-        }
-
-         */
-        private void open2(ApplicationInfo item) {
-            Intent update_intent = new Intent(CalenderDetail.this, menu_addbody.class);
-            startActivity(update_intent);
-            finish();
-        }
+    private void open2(ApplicationInfo item) {
+        Intent update_intent = new Intent(CalenderDetail.this, menu_addbody.class);
+        startActivity(update_intent);
+        finish();
+    }
 
     private void open3(ApplicationInfo item) {
         Intent update_intent = new Intent(CalenderDetail.this, menu_addrun.class);
         startActivity(update_intent);
         finish();
     }
-    /*
-    class AppAdapter extends BaseSwipeListAdapter {
 
-        @Override
-        public int getCount() {
-            return mAppList.size();
-        }
-
-        @Override
-        public ApplicationInfo getItem(int position) {
-            return mAppList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = View.inflate(getApplicationContext(),
-                        R.layout.item_list_app, null);
-                new ViewHolder(convertView);
-            }
-            ViewHolder holder = (ViewHolder) convertView.getTag();
-            ApplicationInfo item = getItem(position);
-            holder.iv_icon.setImageDrawable(item.loadIcon(getPackageManager()));
-            holder.tv_name.setText(item.loadLabel(getPackageManager()));
-            holder.iv_icon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(SimpleActivity.this, "iv_icon_click", Toast.LENGTH_SHORT).show();
-                }
-            });
-            holder.tv_name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(SimpleActivity.this,"iv_icon_click",Toast.LENGTH_SHORT).show();
-                }
-            });
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageView iv_icon;
-            TextView tv_name;
-
-            public ViewHolder(View view) {
-                iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
-                tv_name = (TextView) view.findViewById(R.id.tv_name);
-                view.setTag(this);
-            }
-        }
-
-        @Override
-        public boolean getSwipeEnableByPosition(int position) {
-            if(position % 2 == 0){
-                return false;
-            }
-            return true;
-        }
-    }
-
-
-     */
     private int dp2px(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());
