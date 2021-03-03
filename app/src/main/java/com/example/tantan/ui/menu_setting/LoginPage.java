@@ -22,6 +22,11 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("로그인/회원가입");
 
        // ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("로그인");
@@ -57,6 +62,16 @@ public class LoginPage extends AppCompatActivity {
         });
 
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == RESULT_OK)
+                    finish();
+                break;
+        }
+    }
+
 /*
     public void onClick(View v) {
         switch (v.getId()){
