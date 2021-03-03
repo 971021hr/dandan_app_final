@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/exerciseTitle"
             android:layout_marginTop="5dp"
-            android:text="덤벨 스쿼트"
+            android:padding="10dp"
+            android:text="운동 동작 이름"
             android:background="@color/white"/>
 
     </RelativeLayout>

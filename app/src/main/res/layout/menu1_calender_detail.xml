@@ -179,7 +179,7 @@
                         android:id="@+id/list_exercise"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:dividerHeight="5dp"
+                        android:dividerHeight="10dp"
                         android:divider="#00000000"/>
 
                 </LinearLayout>
