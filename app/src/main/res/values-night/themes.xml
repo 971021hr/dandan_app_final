@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_sub</item>
         <item name="colorPrimaryDark">@color/purple_main</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorAccent">@color/yellow_point</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

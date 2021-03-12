@@ -24,6 +24,9 @@
         </TextView>
     </android.support.v7.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
             android:id="@+id/layout_menuadd1"
             android:layout_width="match_parent"
@@ -183,6 +186,8 @@
             </TextView>
             <LinearLayout
                 android:gravity="bottom"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp"
                 android:weightSum="1"
                 android:layout_margin="5dp"
                 android:orientation="horizontal"
@@ -203,4 +208,5 @@
                     android:text="확인"></Button>
             </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 </LinearLayout>
