@@ -5,20 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.tantan.MainActivity;
 import com.example.tantan.R;
-import com.example.tantan.ui.menu_add.menu_addrun;
 
 public class Menu5Fragment extends Fragment {
 
@@ -52,6 +48,8 @@ public class Menu5Fragment extends Fragment {
 
         listview1 = (ListView) view.findViewById(R.id.list_view1);
         listview1.setAdapter(adapter1);
+
+
 
         adapter1.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_person_24),
                 "개인정보", ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_navigate_next_24));
@@ -94,6 +92,10 @@ public class Menu5Fragment extends Fragment {
 
         listview2 = (ListView) view.findViewById(R.id.list_view2);
         listview2.setAdapter(adapter2);
+
+        //21.03.14 hr 스크롤뷰 높이 고정 때문에 추가
+        setListViewHeightBasedOnChildren(listview1);
+        setListViewHeightBasedOnChildren(listview2);
 
         adapter2.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_help_center_24),
                 "개발자에게 피드백/문의", ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_navigate_next_24));
@@ -145,4 +147,30 @@ public class Menu5Fragment extends Fragment {
                 break;
         }
     }
+
+    //21.03.14 hr 스크롤뷰 고정 함수 생성
+    //한 페이지 안에 2개 이상 listview 사용 + 스크롤뷰 사용 시 문제 있어서 필요
+    public void setListViewHeightBasedOnChildren(ListView listView){
+        ListAdapter listAdapter = listView.getAdapter();
+        
+        if (listAdapter == null){
+            return;
+        }
+        
+        int totalHeight = 0;
+        for (int i = 0; i <listAdapter.getCount(); i++){
+            View listItem = listAdapter.getView(i, null, listView);
+
+            listItem.measure(0,0);
+            totalHeight += listItem.getMeasuredHeight();
+
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount()-1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+
+    }
+
 }
