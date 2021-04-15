@@ -48,13 +48,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:text="식단 Tip" />
+                    android:layout_margin="10dp"
+                    android:text="식단 Tip"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
 
                 <HorizontalScrollView
@@ -102,13 +102,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:text="운동 Tip" />
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="운동 Tip"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"

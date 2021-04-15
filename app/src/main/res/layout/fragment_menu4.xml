@@ -25,48 +25,57 @@
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="지난" />
+                android:text="지난"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/s_spinner"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
 
             <TextView
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="간 변화" />
+                android:text="간 변화"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
