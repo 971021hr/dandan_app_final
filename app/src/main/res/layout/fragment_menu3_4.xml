@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -18,116 +17,136 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="추가 항목 선택"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/white">
-        </TextView>
+            android:textStyle="bold"></TextView>
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:id="@+id/layout_menuadd4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:orientation="vertical"
-            android:visibility="visible"
-            android:layout_margin="15dp">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="물 추가"
-                android:textSize="18sp"
                 android:textColor="#000000"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
                 <Spinner
                     android:id="@+id/spinner_year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/add_year">
-                </Spinner>
+                    android:layout_gravity="center"
+                    android:entries="@array/add_year"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="년"></TextView>
+                    android:text="년"
+                    android:textSize="18sp"></TextView>
+
                 <Spinner
                     android:id="@+id/spinner_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/add_month">
-                </Spinner>
+                    android:layout_gravity="center"
+                    android:entries="@array/add_month"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="월"></TextView>
+                    android:text="월"
+                    android:textSize="18sp"></TextView>
+
                 <Spinner
                     android:id="@+id/spinner_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/add_day">
-                </Spinner>
+                    android:layout_gravity="center"
+                    android:entries="@array/add_day"></Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="일"></TextView>
+                    android:text="일"
+                    android:textSize="18sp"></TextView>
             </LinearLayout>
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="18sp"
+                android:text="물"
                 android:textColor="@color/black"
-                android:text="물"></TextView>
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
             <LinearLayout
-                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:orientation="horizontal">
+
                 <Spinner
                     android:id="@+id/spinner_w"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/water">
-                </Spinner>
+                    android:layout_gravity="center"
+                    android:entries="@array/water"></Spinner>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ml"></TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="bottom"
-                android:weightSum="1"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <Button
-                    android:id="@+id/btn_watercancel"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="취소"></Button>
-                <Button
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="확인"></Button>
-
+                    android:text="ml"
+                    android:textSize="18sp"></TextView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_watercancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="취소"
+            android:textSize="18sp"></Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="확인"
+            android:textSize="18sp"></Button>
+
+    </LinearLayout>
 </LinearLayout>
