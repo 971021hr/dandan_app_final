@@ -82,7 +82,7 @@ public class LoginPage extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
 //                startActivity(pwd_email_intent);
-//            }
+//            }섹시현경
 //        });
 
     }
