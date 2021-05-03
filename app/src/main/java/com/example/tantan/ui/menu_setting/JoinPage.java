@@ -29,6 +29,9 @@ public class JoinPage extends AppCompatActivity {
     private Button mJoinButton;
     private ServiceApi service;
 
+    boolean cancel;
+    View focusView;
+
     private static final int REQUEST_CODE = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +87,8 @@ public class JoinPage extends AppCompatActivity {
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
-        boolean cancel = false;
-        View focusView = null;
+        cancel = false;
+        focusView = null;
 
         // 패스워드의 유효성 검사
         if (password.isEmpty()) {
@@ -111,7 +114,7 @@ public class JoinPage extends AppCompatActivity {
 
         // 이름의 유효성 검사
         if (name.isEmpty()) {
-            mNameView.setError("이름을 입력해주세요.");
+            mNameView.setError("닉네임을 입력해주세요.");
             focusView = mNameView;
             cancel = true;
         }
@@ -134,9 +137,17 @@ public class JoinPage extends AppCompatActivity {
                     finish();
                 }
 
+                if (result.getCode() == 204) {
+                    mEmailView.setError("존재하는 이메일입니다.");
+                    focusView = mEmailView;
+                    cancel = true;
+                }
+
+                /*
                 Intent join_intent = new Intent(JoinPage.this, PopUpButton1.class);
                 join_intent.putExtra("data", "축하합니다! 회원가입이 완료되었습니다.");
                 startActivityForResult(join_intent, REQUEST_CODE);
+                */
             }
 
             @Override

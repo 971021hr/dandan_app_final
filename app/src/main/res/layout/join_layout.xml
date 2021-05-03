@@ -94,12 +94,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/text_box"
             android:ems="10"
             android:hint="영문, 숫자 혼합 8자 이상"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textSize="12sp"
-            android:background="@drawable/text_box" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/textView9"
