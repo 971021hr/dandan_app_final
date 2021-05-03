@@ -70,20 +70,20 @@ public class LoginPage extends AppCompatActivity {
         join_text = (TextView) findViewById(R.id.join_text);
         pwd_email_text = (TextView) findViewById(R.id.findpw_text);
 
-//        join_text.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent join_intent = new Intent(LoginPage.this, JoinPage.class);
-//                startActivity(join_intent);
-//            }
-//        });
-//        pwd_email_text.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
-//                startActivity(pwd_email_intent);
-//            }섹시현경
-//        });
+        join_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent join_intent = new Intent(LoginPage.this, JoinPage.class);
+                startActivity(join_intent);
+            }
+        });
+        pwd_email_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
+               Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
+               startActivity(pwd_email_intent);
+            }
+        });
 
     }
 
