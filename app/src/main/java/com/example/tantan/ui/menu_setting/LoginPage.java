@@ -2,9 +2,9 @@ package com.example.tantan.ui.menu_setting;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View.OnClickListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -58,7 +58,7 @@ public class LoginPage extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        mEmailLoginButton.setOnClickListener(new View.OnClickListener() {
+        mEmailLoginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
