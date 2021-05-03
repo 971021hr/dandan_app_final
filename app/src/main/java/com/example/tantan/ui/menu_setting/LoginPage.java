@@ -3,6 +3,7 @@ package com.example.tantan.ui.menu_setting;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View.OnClickListener;
 import android.util.Log;
@@ -46,11 +47,11 @@ public class LoginPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("로그인/회원가입");
 
-        //service = RetrofitClient.getClient().create(ServerApi.class);
-
         // ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("로그인");
         //actionBar.setDisplayHomeAsUpEnabled(true);
+
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.login_email);
         mPasswordView = (EditText) findViewById(R.id.login_password);
@@ -131,15 +132,13 @@ public class LoginPage extends AppCompatActivity {
                 LoginResponse result = response.body();
                 Toast.makeText(LoginPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
 
-                if (result.getCode() == 200) {
-                    finish();
-                }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Toast.makeText(LoginPage.this, "로그인 에러 발생", Toast.LENGTH_SHORT).show();
                 Log.e("로그인 에러 발생", t.getMessage());
+                Log.e("서비스 잘 생성됐니?", String.valueOf(service));
             }
         });
     }
