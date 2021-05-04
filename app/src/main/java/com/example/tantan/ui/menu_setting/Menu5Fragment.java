@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tantan.R;
+import com.example.tantan.network.SharedPreference;
 
 public class Menu5Fragment extends Fragment {
 
@@ -26,20 +28,36 @@ public class Menu5Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu5, container, false);
-
+        user_name = (TextView) view.findViewById(R.id.user_name);
         sign_btn = (Button) view.findViewById(R.id.sign_btn);
        // sign_btn.setOnClickListener(this);
         sign_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (SharedPreference.getAttribute(getActivity(), "userEmail").length() != 0) {//로그인 고유데이터(현재는 이메일) 길이 0 아닐시
+                    Intent intent = new Intent(getActivity(), LoginPage.class);
+                    startActivityForResult(intent, RESULT_CODE);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
+                    Toast.makeText(getActivity(), "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                    user_name.setText(SharedPreference.getAttribute(getContext(), "userEmail"));
+                }
 
-                Intent intent = new Intent(getActivity(), LoginPage.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), LoginPage.class);
+//                startActivity(intent);
 
             }
         });
+//
+//       user_name = (TextView) view.findViewById(R.id.user_name);
+//       user_name.setText(SharedPreference.getAttribute(getContext(), "userEmail")+"님 반값습니다.");
+//        if (SharedPreference.getAttribute(getActivity(), "userEmail").length() != 0) {//로그인 고유데이터(현재는 이메일) 길이 0 아닐시
+//            Intent intent = new Intent(getActivity(), Menu5Fragment.class);
+//            startActivity(intent);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
+//            Toast.makeText(getActivity(), "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+//            user_name.setText(SharedPreference.getAttribute(getContext(), "userEmail"));
+//        }
 
-       // user_name = (TextView) view.findViewById(R.id.user_name);
 
         ListView listview1;
         ListViewAdapter1 adapter1;
@@ -48,7 +66,6 @@ public class Menu5Fragment extends Fragment {
 
         listview1 = (ListView) view.findViewById(R.id.list_view1);
         listview1.setAdapter(adapter1);
-
 
 
         adapter1.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_person_24),

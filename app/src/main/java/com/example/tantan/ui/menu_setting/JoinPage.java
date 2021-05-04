@@ -45,7 +45,7 @@ public class JoinPage extends AppCompatActivity {
         getSupportActionBar().setTitle("회원가입");
 
         //ActionBar ab = getSupportActionBar();
-       // ab.setTitle("회원가입");
+        // ab.setTitle("회원가입");
 //
 //        if(getIntent().getData() != null) {
 //            Intent intent1 = getIntent();

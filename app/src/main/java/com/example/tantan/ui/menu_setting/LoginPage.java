@@ -1,7 +1,9 @@
 package com.example.tantan.ui.menu_setting;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,7 @@ import com.example.tantan.data.LoginData;
 import com.example.tantan.data.LoginResponse;
 import com.example.tantan.network.RetrofitClient;
 import com.example.tantan.network.ServiceApi;
+import com.example.tantan.network.SharedPreference;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,13 +38,19 @@ public class LoginPage extends AppCompatActivity {
     private ServiceApi service;
     TextView join_text;
     TextView pwd_email_text;
+    TextView user_name;
+    private Intent intent;
+    private CheckBox checkBox;
+    private Context mContext;
 
     final static int REQUEST_CODE = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+        mContext = this;
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -79,9 +89,9 @@ public class LoginPage extends AppCompatActivity {
         });
         pwd_email_text.setOnClickListener(new View.OnClickListener() {
             @Override
-           public void onClick(View v) {
-               Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
-               startActivity(pwd_email_intent);
+            public void onClick(View v) {
+                Intent pwd_email_intent = new Intent(LoginPage.this, PassWordFindPage.class);
+                startActivity(pwd_email_intent);
             }
         });
 
@@ -93,9 +103,12 @@ public class LoginPage extends AppCompatActivity {
 
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+        Toast.makeText(LoginPage.this, email, Toast.LENGTH_LONG).show();
 
+        //RetrofitClient.setAttribute(mContext, "userEmail", email);
         boolean cancel = false;
         View focusView = null;
+
 
         // 패스워드의 유효성 검사
         if (password.isEmpty()) {
@@ -132,6 +145,26 @@ public class LoginPage extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
                 Toast.makeText(LoginPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                //SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
+
+               // finish();
+
+                if (result.getCode() == 200) {
+                    SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
+//                    Intent intent = new Intent(LoginPage.this, Menu5Fragment.class);
+//                    startActivity(intent);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
+                    finish();
+                }
+//사용자정보 내장메모리에 저장
+
+//                if (SharedPreference.getAttribute(LoginPage.this, "userEmail").length() != 0) {//로그인 고유데이터(현재는 이메일) 길이 0 아닐시
+//                    Intent intent = new Intent(LoginPage.this, Menu5Fragment.class);
+//                    startActivity(intent);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
+//                    Toast.makeText(getApplicationContext(), "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                }
 
             }
 
@@ -161,29 +194,6 @@ public class LoginPage extends AppCompatActivity {
                 break;
         }
     }
-
-/*
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.login_btn:
-                Intent intent = new Intent();
-                intent.putExtra("이름", "차현경");
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-
-            case R.id.join_text:
-                Intent join_intent = new Intent(this, JoinPage.class);
-                startActivity(join_intent);
-                break;
-
-            case R.id.findpw_text:
-                Intent findpw_intent = new Intent(this, PassWordPage.class);
-                startActivity(findpw_intent);
-                break;
-        }
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -194,4 +204,5 @@ public class LoginPage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
