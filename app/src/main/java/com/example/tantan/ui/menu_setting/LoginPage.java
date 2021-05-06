@@ -151,8 +151,8 @@ public class LoginPage extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
-//                    Intent intent = new Intent(LoginPage.this, Menu5Fragment.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
 //                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
                     finish();
                 }
@@ -194,6 +194,29 @@ public class LoginPage extends AppCompatActivity {
                 break;
         }
     }
+
+/*
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.login_btn:
+                Intent intent = new Intent();
+                intent.putExtra("이름", "차현경");
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+
+            case R.id.join_text:
+                Intent join_intent = new Intent(this, JoinPage.class);
+                startActivity(join_intent);
+                break;
+
+            case R.id.findpw_text:
+                Intent findpw_intent = new Intent(this, PassWordPage.class);
+                startActivity(findpw_intent);
+                break;
+        }
+    }*/
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
