@@ -51,18 +51,13 @@ public class Menu5Fragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LoginPage.class);
                 startActivityForResult(intent, RESULT_CODE);
 
-//                    Intent intent = new Intent(getActivity(), LoginPage.class);
-//                    startActivityForResult(intent, RESULT_CODE);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
-//                    Toast.makeText(getActivity(), "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
-//                    user_name.setText(SharedPreference.getAttribute(getContext(), "userEmail"));
-                //}
+
             }
         });
 
         if (new File("/data/data/com.example.tantan/shared_prefs/com.example.tantan_preferences.xml").exists()) {
             if (SharedPreference.getAttribute(getActivity(), "userEmail").length() != 0) {
-                Toast.makeText(getActivity(), "자동로그인", Toast.LENGTH_SHORT).show();
+
                 user_name.setText(SharedPreference.getAttribute(getContext(), "userName"));
 
                 user_hello.setVisibility(View.VISIBLE);

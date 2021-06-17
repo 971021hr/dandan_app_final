@@ -34,14 +34,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <EditText
-                android:gravity="center"
-                android:layout_width="match_parent"
+                android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:hint="2~6자 이내로 입력바랍니다."></EditText>
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="중복 확인"></Button>
+
         </LinearLayout>
         <TextView
             android:layout_marginTop="12dp"

@@ -103,7 +103,6 @@ public class LoginPage extends AppCompatActivity {
 
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
-        Toast.makeText(LoginPage.this, email, Toast.LENGTH_LONG).show();
 
         //RetrofitClient.setAttribute(mContext, "userEmail", email);
         boolean cancel = false;
@@ -144,7 +143,7 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
-                Toast.makeText(LoginPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
                 //SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
 
                 // finish();

@@ -167,12 +167,12 @@ public class menu_addmeal extends AppCompatActivity {
 
                     @Override
                     public void onPermissionGranted() {
-                        Toast.makeText(menu_addmeal.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
                     public void onPermissionDenied(List<String> deniedPermissions) {
-                        Toast.makeText(menu_addmeal.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+
                     }
                 };
 
@@ -321,7 +321,7 @@ public class menu_addmeal extends AppCompatActivity {
 
                 String imgFileName = System.currentTimeMillis() + ".jpg";
                 File imageFile= null;
-                File storageDir = new File(Environment.getExternalStorageDirectory() + "/Pictures", "ireh");
+                File storageDir = new File(Environment.getExternalStorageDirectory() + "/Pictures", "tantan");
 
                 if(!storageDir.exists()){
                     Log.v("알림","storageDir 존재 x " + storageDir.toString());
@@ -353,7 +353,7 @@ public class menu_addmeal extends AppCompatActivity {
             Uri contentUri = Uri.fromFile(f);
             mediaScanIntent.setData(contentUri);
             sendBroadcast(mediaScanIntent);
-            Toast.makeText(this,"사진이 저장되었습니다",Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
@@ -404,7 +404,7 @@ public class menu_addmeal extends AppCompatActivity {
             @Override
             public void onResponse(Call<MealResponse> call, Response<MealResponse> response) {
                 MealResponse result = response.body();
-                Toast.makeText(menu_addmeal.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
                 finish();
             }
 

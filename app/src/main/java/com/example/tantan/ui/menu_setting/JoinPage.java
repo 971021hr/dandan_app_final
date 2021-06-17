@@ -184,7 +184,6 @@ public class JoinPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<JoinResponse> call, Response<JoinResponse> response) {
                 JoinResponse result = response.body();
-                Toast.makeText(JoinPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
 
                 if (result.getCode() == 200) {
                     finish();

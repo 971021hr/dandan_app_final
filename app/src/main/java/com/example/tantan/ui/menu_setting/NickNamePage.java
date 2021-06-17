@@ -45,7 +45,7 @@ public class NickNamePage extends AppCompatActivity {
        // actionBar.setTitle("개인정보");
 
         strEmail = SharedPreference.getAttribute(this,"userEmail");
-        Toast.makeText(this, "사용자 이메일 : " + strEmail, Toast.LENGTH_SHORT).show();
+
 
         strName = editNickname.getText().toString();
 
@@ -62,7 +62,7 @@ public class NickNamePage extends AppCompatActivity {
                 setResult(RESULT_CANCELED, intent);
 
                 attemptNickname();
-                Toast.makeText(getApplicationContext(), "닉네임이 변경되었습니다.", Toast.LENGTH_LONG).show();
+
                 finish();
                 break;
         }
@@ -99,14 +99,12 @@ public class NickNamePage extends AppCompatActivity {
             @Override
             public void onResponse(Call<NameResponse> call, Response<NameResponse> response) {
                 NameResponse result = response.body();
-                Toast.makeText(NickNamePage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
-
 
                 if (result.getCode() == 200) {
                     SharedPreference.setAttribute(NickNamePage.this, "userName", editNickname.getText().toString());
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
-                    Toast.makeText(NickNamePage.this, "닉네임 변경 완료 _ 안드로이드", Toast.LENGTH_SHORT).show();
+
                     finish();
                 }
 
@@ -115,9 +113,8 @@ public class NickNamePage extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<NameResponse> call, Throwable t) {
-                Toast.makeText(NickNamePage.this, "닉네임 에러 발생", Toast.LENGTH_SHORT).show();
+
                 Log.e("닉네임 에러 발생", t.getMessage());
-                Log.e("서비스 잘 생성됐니?", String.valueOf(service));
 
             }
         });

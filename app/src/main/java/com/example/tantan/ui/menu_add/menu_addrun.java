@@ -226,7 +226,7 @@ public class menu_addrun extends AppCompatActivity {
             @Override
             public void onResponse(Call<SimpleResponse> call, Response<SimpleResponse> response) {
                 SimpleResponse result = response.body();
-                Toast.makeText(menu_addrun.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                 if (result.getCode() == 200) {
                     finish();
@@ -236,7 +236,7 @@ public class menu_addrun extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<SimpleResponse> call, Throwable t) {
-                Toast.makeText(menu_addrun.this, "운동 추가 에러 발생", Toast.LENGTH_SHORT).show();
+
                 Log.e("운동 추가 에러 발생", t.getMessage());
 
             }

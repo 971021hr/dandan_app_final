@@ -169,7 +169,6 @@ public class NoticePage extends AppCompatActivity {
                     listview.setAdapter(adapter);
                     listview2.setAdapter(adapter2);
 
-                    Toast.makeText(NoticePage.this, "Notice 데이터 성공 ^^ _ 안드로이드", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
@@ -188,7 +187,6 @@ public class NoticePage extends AppCompatActivity {
                 adapter.addItem(ContextCompat.getDrawable(NoticePage.this, R.drawable.ic_baseline_report_problem_24),"-","-");
                 listview.setAdapter(adapter);
 
-                Toast.makeText(NoticePage.this, "Notice 데이터 가져오기 성공 ㅜ^ㅜ _ 안드로이드", Toast.LENGTH_SHORT).show();
             }
         });
     }

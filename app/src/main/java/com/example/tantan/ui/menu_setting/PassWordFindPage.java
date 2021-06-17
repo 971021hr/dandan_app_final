@@ -114,12 +114,12 @@ public class PassWordFindPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<PwdResponse> call, Response<PwdResponse> response) {
                 PwdResponse result = response.body();
-                Toast.makeText(PassWordFindPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                 if (result.getCode() == 200) {
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
-                    Toast.makeText(PassWordFindPage.this, "닉네임 변경 완료 _ 안드로이드", Toast.LENGTH_SHORT).show();
+
                     finish();
                 }
 

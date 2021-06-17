@@ -197,9 +197,7 @@ public class CalenderDetail extends AppCompatActivity{
             }
         });
 
-        mealAdapter.addItem(ContextCompat.getDrawable(this,R.drawable.ic_baseline_fastfood_24),"AM 10:00","오늘 아점은 이걸 먹었다고 한다.");
-        mealAdapter.addItem(ContextCompat.getDrawable(this,R.drawable.ic_baseline_fastfood_24),"AM 14:00","오늘 간식은 이걸 먹었다고 한다.");
-        mealAdapter.addItem(ContextCompat.getDrawable(this,R.drawable.ic_baseline_fastfood_24),"AM 18:00","오늘 저녁은 이걸 먹었다고 한다.");
+        mealAdapter.addItem(ContextCompat.getDrawable(this,R.drawable.ic_baseline_fastfood_24)," "," ");
 
         //신체 눈바디 등 정보 list 추가
         listBody.setAdapter(bodyAdapter);
@@ -351,7 +349,6 @@ public class CalenderDetail extends AppCompatActivity{
         if (new File("/data/data/com.example.tantan/shared_prefs/com.example.tantan_preferences.xml").exists()) {
             if (userEmail.equals("")) {
 
-                Toast.makeText(CalenderDetail.this, "로그인 안한 유저임", Toast.LENGTH_SHORT).show();
 
             } else {
                 startGetWaterDate(new ArrayData(userEmail, selectDate));
@@ -374,8 +371,6 @@ public class CalenderDetail extends AppCompatActivity{
                 exerciseAdapter.addItem("로그인 안한 사람","0","-");
                 listExercise.setAdapter(exerciseAdapter);
 
-                Toast.makeText(CalenderDetail.this, "로그인 안한 유저임", Toast.LENGTH_SHORT).show();
-
 
             } else {
                 startGetRunDate(new ArrayData(userEmail, selectDate));
@@ -392,7 +387,7 @@ public class CalenderDetail extends AppCompatActivity{
             @Override
             public void onResponse(Call<MealResponse> call, Response<MealResponse> response) {
                 MealResponse result = response.body();
-                Toast.makeText(CalenderDetail.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
                 String Meal_Hour = "";
                 String Meal_Min = "";
 
@@ -455,7 +450,7 @@ public class CalenderDetail extends AppCompatActivity{
                         mealAdapter.notifyDataSetChanged();
                         listMeal.setAdapter(mealAdapter);
                     }
-                    Toast.makeText(CalenderDetail.this, "운동 데이터 가져오기 성공", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
                 } else {
@@ -467,7 +462,7 @@ public class CalenderDetail extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<MealResponse> call, Throwable t) {
-                Toast.makeText(CalenderDetail.this, "데이터 가져오기 실패 ㅜ^ㅜ _ 안드로이드", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -478,7 +473,6 @@ public class CalenderDetail extends AppCompatActivity{
             @Override
             public void onResponse(Call<BodyResponse> call, Response<BodyResponse> response){
                 BodyResponse result = response.body();
-                Toast.makeText(CalenderDetail.this, result.getMessage(), Toast.LENGTH_SHORT).show();
 
                 if (result.getCode() == 200) {
                     String body_weight = result.getBodyweight();
@@ -495,12 +489,9 @@ public class CalenderDetail extends AppCompatActivity{
                     Log.e("사진", String.valueOf(bitmap));
                     Drawable body_drawable_image = new BitmapDrawable(bitmap);
 
-                    Log.e("몸무게", body_weight);
                     bodyAdapter.addItem(body_drawable_image,"몸무게 : " + body_weight + " kg", "골격근 : " + body_muscle + " kg", "체지방 : " + body_fat + " kg");
                     bodyAdapter.notifyDataSetChanged();
                     listBody.setAdapter(bodyAdapter);
-
-                    Toast.makeText(CalenderDetail.this, "운동 데이터 가져오기 성공", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
@@ -514,7 +505,7 @@ public class CalenderDetail extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<BodyResponse> call, Throwable t) {
-                Toast.makeText(CalenderDetail.this, "데이터 가져오기 실패 ㅜ^ㅜ _ 안드로이드", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -525,7 +516,6 @@ public class CalenderDetail extends AppCompatActivity{
             @Override
             public void onResponse(Call<WaterGetResponse> call, Response<WaterGetResponse> response){
                 WaterGetResponse result = response.body();
-                Toast.makeText(CalenderDetail.this, result.getMessage(), Toast.LENGTH_SHORT).show();
 
                 if (result.getCode() == 200) {
                     String waterData = result.getResult();
@@ -535,8 +525,6 @@ public class CalenderDetail extends AppCompatActivity{
 
                     txtWater.setText(waterData + " ml");
 
-                    // Toast.makeText(CalenderDetail.this, "데이터 가져오기 성공 ^0^ _ 안드로이드", Toast.LENGTH_SHORT).show();
-
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
                 }
@@ -544,7 +532,7 @@ public class CalenderDetail extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<WaterGetResponse> call, Throwable t) {
-                Toast.makeText(CalenderDetail.this, "데이터 가져오기 실패 ㅜ^ㅜ _ 안드로이드", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -577,8 +565,6 @@ public class CalenderDetail extends AppCompatActivity{
                     }
                     listExercise.setAdapter(exerciseAdapter);
 
-                    Toast.makeText(CalenderDetail.this, "RUN 데이터 가져오기 성공 ^0^ _ 안드로이드", Toast.LENGTH_SHORT).show();
-
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
 
@@ -592,7 +578,7 @@ public class CalenderDetail extends AppCompatActivity{
                 txtNotData.setVisibility(View.VISIBLE);
                 exerciseAdapter.addItem("디비가져옴 실패","0","-");
                 listExercise.setAdapter(exerciseAdapter);
-                Toast.makeText(CalenderDetail.this, "RUN 데이터 가져오기 실패 ㅜ^ㅜ _ 안드로이드", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

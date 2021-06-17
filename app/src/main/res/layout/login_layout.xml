@@ -85,16 +85,6 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="10dp"
-            android:text="로그인 상태 유지"
-            android:textSize="12sp" />
-
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"

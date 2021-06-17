@@ -69,17 +69,15 @@ public class PopUpButton2 extends Activity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
-                Toast.makeText(PopUpButton2.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+;
                 SharedPreference.setAttribute(PopUpButton2.this, "userEmail", "");
                 startActivityForResult(new Intent(PopUpButton2.this, MainActivity.class), RESULT_OK);
-                //Intent intent = new Intent();
-                //setResult(RESULT_OK, intent);
-                //finish();
+
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(PopUpButton2.this, "탈퇴 에러", Toast.LENGTH_SHORT).show();
+
                 Log.e("탈퇴 에러 발생", t.getMessage());
             }
         });

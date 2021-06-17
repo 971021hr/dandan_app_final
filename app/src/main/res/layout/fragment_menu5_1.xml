@@ -74,23 +74,7 @@
                     android:layout_height="wrap_content"
                     android:hint="비밀번호를 입력하세요."></EditText>
             </LinearLayout>
-            <LinearLayout
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></CheckBox>
-                <TextView
-                    android:layout_marginLeft="8dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:hint="로그인 상태 유지"></TextView>
-            </LinearLayout>
+
             <Button
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"

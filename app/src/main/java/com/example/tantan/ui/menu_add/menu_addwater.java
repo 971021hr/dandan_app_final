@@ -112,7 +112,7 @@ public class menu_addwater extends AppCompatActivity {
             @Override
             public void onResponse(Call<WaterResponse> call, Response<WaterResponse> response) {
                 WaterResponse result = response.body();
-                Toast.makeText(menu_addwater.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
                 finish();
             }
 

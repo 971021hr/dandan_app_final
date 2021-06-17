@@ -125,7 +125,7 @@ public class PassWordPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<PwdResponse> call, Response<PwdResponse> response) {
                 PwdResponse result = response.body();
-                Toast.makeText(PassWordPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                 if (result.getCode() == 200) {
                     SharedPreference.setAttribute(PassWordPage.this, "userPwd", mUserPwd_n_c.getText().toString());

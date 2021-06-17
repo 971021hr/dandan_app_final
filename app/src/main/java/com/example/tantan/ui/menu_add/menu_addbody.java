@@ -107,12 +107,12 @@ public class menu_addbody extends AppCompatActivity {
                 PermissionListener permissionlistener = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
-                        Toast.makeText(menu_addbody.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
                     public void onPermissionDenied(List<String> deniedPermissions) {
-                        Toast.makeText(menu_addbody.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+
                     }
                 };
                 TedPermission.with(menu_addbody.this)
@@ -185,7 +185,7 @@ public class menu_addbody extends AppCompatActivity {
             @Override
             public void onResponse(Call<BodyResponse> call, Response<BodyResponse> response) {
                 BodyResponse result = response.body();
-                Toast.makeText(menu_addbody.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
                 finish();
             }
 
@@ -297,7 +297,7 @@ public class menu_addbody extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         sendBroadcast(mediaScanIntent);
-        Toast.makeText(this,"사진이 저장되었습니다",Toast.LENGTH_SHORT).show();
+
     }
 
     public void onBackPressed(){super.onBackPressed();}
