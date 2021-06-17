@@ -35,8 +35,8 @@
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/join_name"
+            <AutoCompleteTextView
+                android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -219,15 +219,16 @@
         <item>필라테스</item>
     </string-array>
     <string-array name="water">
-        <item>0</item>
-        <item>0.5</item>
-        <item>1</item>
-        <item>1.5</item>
-        <item>2</item>
-        <item>2.5</item>
-        <item>3</item>
-        <item>3.5</item>
-        <item>4</item>
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
     </string-array>
     <string-array name="weight">
         <item>0</item>

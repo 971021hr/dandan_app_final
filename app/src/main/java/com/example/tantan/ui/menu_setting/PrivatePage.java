@@ -55,7 +55,7 @@ public class PrivatePage extends AppCompatActivity {
                 switch (item.getTitle()) {
                     case "닉네임 변경":
                         Intent nickname_intent = new Intent(PrivatePage.this, NickNamePage.class);
-                        startActivity(nickname_intent);
+                        startActivityForResult(nickname_intent, REQUEST_CODE);
                         break;
                     case "비밀번호 변경":
                         Intent password_intent = new Intent(PrivatePage.this, PassWordPage.class);
@@ -74,8 +74,12 @@ public class PrivatePage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CODE:
-                if (resultCode == RESULT_OK)
+                if (resultCode == RESULT_OK) {
                     finish();
+                } else if (resultCode == RESULT_CANCELED) {
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                }
                 break;
         }
     }

@@ -2,13 +2,19 @@ package com.example.tantan.ui.menu_setting;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tantan.R;
@@ -26,8 +32,11 @@ public class JoinPage extends AppCompatActivity {
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private EditText mNameView;
+    private EditText mPasswordView2;
     private Button mJoinButton;
     private ServiceApi service;
+    private TextView mTextView;
+    private CheckBox mCheckBox;
 
     boolean cancel;
     View focusView;
@@ -44,21 +53,40 @@ public class JoinPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setTitle("회원가입");
 
-        //ActionBar ab = getSupportActionBar();
-        // ab.setTitle("회원가입");
-//
-//        if(getIntent().getData() != null) {
-//            Intent intent1 = getIntent();
-//            String finish = intent1.getStringExtra("finish");
-//            if(finish.equals("1"))
-//                finish();
-//        }
-
         mEmailView = (AutoCompleteTextView) findViewById(R.id.join_email);
         mPasswordView = (EditText) findViewById(R.id.join_password);
+        mPasswordView2 = (EditText) findViewById(R.id.editTextTextPassword4);
         mNameView = (EditText) findViewById(R.id.join_name);
+        mCheckBox = (CheckBox) findViewById(R.id.checkbox1);
         mJoinButton = (Button) findViewById(R.id.join_button);
+        mTextView = (TextView) findViewById(R.id.join_ok);
         service = RetrofitClient.getClient().create(ServiceApi.class);
+
+        mTextView.setVisibility(View.GONE);
+
+        mPasswordView2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if (mPasswordView.getText().toString().equals(mPasswordView2.getText().toString())) {
+                    mTextView.setVisibility(View.VISIBLE);
+                    mTextView.setText("비밀번호가 일치합니다.");
+                } else {
+                    mTextView.setVisibility(View.VISIBLE);
+                    mTextView.setText("비밀번호가 불일치합니다.");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         mJoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +106,7 @@ public class JoinPage extends AppCompatActivity {
 
     }
 
+
     private void attemptJoin() {
         mNameView.setError(null);
         mEmailView.setError(null);
@@ -86,14 +115,22 @@ public class JoinPage extends AppCompatActivity {
         String name = mNameView.getText().toString();
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String password2 = mPasswordView2.getText().toString();
 
         cancel = false;
         focusView = null;
 
+        // 이름의 유효성 검사
+        if (name.isEmpty()) {
+            mNameView.setError("닉네임을 입력해주세요.");
+            focusView = mNameView;
+            cancel = true;
+        }
+
         // 패스워드의 유효성 검사
         if (password.isEmpty()) {
-            mEmailView.setError("비밀번호를 입력해주세요.");
-            focusView = mEmailView;
+            mPasswordView.setError("비밀번호를 입력해주세요.");
+            focusView = mPasswordView;
             cancel = true;
         } else if (!isPasswordValid(password)) {
             mPasswordView.setError("6자 이상의 비밀번호를 입력해주세요.");
@@ -112,10 +149,26 @@ public class JoinPage extends AppCompatActivity {
             cancel = true;
         }
 
-        // 이름의 유효성 검사
-        if (name.isEmpty()) {
-            mNameView.setError("닉네임을 입력해주세요.");
-            focusView = mNameView;
+        // 패스워드의 유효성 검사
+        if (password2.isEmpty()) {
+            mPasswordView2.setError("비밀번호를 입력해주세요.");
+            focusView = mPasswordView2;
+            cancel = true;
+        }
+
+        if(mCheckBox.isChecked()) {
+            if (password.equals(password2)) {
+                Toast.makeText(JoinPage.this, "개인정보 처리에 동의하셨습니다.", Toast.LENGTH_SHORT).show();
+                cancel = false;
+            } else {
+                Toast.makeText(JoinPage.this, "비밀번호가 불일치합니다.", Toast.LENGTH_SHORT).show();
+                focusView = mPasswordView2;
+                cancel = true;
+            }
+        }
+        if (!mCheckBox.isChecked()){
+            Toast.makeText(JoinPage.this, "동의하지 않으면 회원가입하지 못합니다.", Toast.LENGTH_SHORT).show();
+            focusView = mCheckBox;
             cancel = true;
         }
 
@@ -143,11 +196,6 @@ public class JoinPage extends AppCompatActivity {
                     cancel = true;
                 }
 
-                /*
-                Intent join_intent = new Intent(JoinPage.this, PopUpButton1.class);
-                join_intent.putExtra("data", "축하합니다! 회원가입이 완료되었습니다.");
-                startActivityForResult(join_intent, REQUEST_CODE);
-                */
             }
 
             @Override

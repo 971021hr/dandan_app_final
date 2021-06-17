@@ -11,14 +11,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.example.tantan.ui.menu_add.Menu3Fragment;
-import com.example.tantan.ui.menu_add.menu_add;
 import com.example.tantan.ui.menu_calendar.Menu1Fragment;
 import com.example.tantan.ui.menu_community.Menu2Fragment;
 import com.example.tantan.ui.menu_setting.Menu5Fragment;
-import com.example.tantan.ui.menu_setting.PrivatePage;
 import com.example.tantan.ui.menu_stats.Menu4Fragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         // NavController navController = Navigation.findNavController(this, R.id.frame_layout);
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

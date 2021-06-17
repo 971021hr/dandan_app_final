@@ -51,44 +51,12 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_year"></Spinner>
-
                 <TextView
+                    android:id="@+id/tv_meal_date"
+                    android:text="sexy"
+                    android:textSize="18sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="년"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_month"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_month"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="월"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_day"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="일"
-                    android:textSize="18sp"></TextView>
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <TextView
@@ -106,44 +74,21 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/hours"></Spinner>
+                <TextView
+                    android:id="@+id/meal_time"
+                    android:text="time"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:layout_marginLeft="1dp"
+                    android:id="@+id/meal_ampm"
+                    android:text="time"
+                    android:textSize="18sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시"
-                    android:textSize="18sp"></TextView>
+                    android:layout_height="wrap_content"/>
 
-                <Spinner
-                    android:id="@+id/spinner_m"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/minutes"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="분"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_s"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/seconds"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="초"
-                    android:textSize="18sp"></TextView>
             </LinearLayout>
 
             <TextView
@@ -157,6 +102,7 @@
                 android:textStyle="bold"></TextView>
 
             <ImageView
+                android:id="@+id/meal_img"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:adjustViewBounds="true"
@@ -203,6 +149,7 @@
             android:text="취소"></Button>
 
         <Button
+            android:id="@+id/btn_meal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

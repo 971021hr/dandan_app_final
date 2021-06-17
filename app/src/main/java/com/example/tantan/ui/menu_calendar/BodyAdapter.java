@@ -42,6 +42,11 @@ public class BodyAdapter extends BaseAdapter {
 
         BodyItem bodyItem = bodyItemArrayList.get(position);
 
+        bodyImg.setImageDrawable(bodyItem.getBodyImg());
+        bodyWeight.setText(bodyItem.getBodyWeight());
+        bodyMuscle.setText(bodyItem.getBodyMuscle());
+        bodyFat.setText(bodyItem.getBodyFat());
+
         return convertView;
     }
 

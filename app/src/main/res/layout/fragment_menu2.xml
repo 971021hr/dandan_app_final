@@ -32,9 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
         <LinearLayout
             android:id="@+id/menu_community_main"
             android:layout_width="match_parent"
@@ -57,42 +54,12 @@
                     android:textStyle="bold" />
 
 
-                <HorizontalScrollView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/vertical_list01"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btn_community_detail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample01"
-                            android:text="sample01"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample02"
-                            android:text="sample02"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample03"
-                            android:text="sample03"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal"
+                    />
 
             </LinearLayout>
 
@@ -112,47 +79,18 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <HorizontalScrollView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/vertical_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal"/>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample01"
-                            android:text="sample01"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample02"
-                            android:text="sample02"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sample03"
-                            android:text="sample03"
-                            android:gravity="bottom|center"
-                            android:layout_margin="10dp"/>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
 
             </LinearLayout>
 
 
         </LinearLayout>
 
-        </ScrollView>
+
     </FrameLayout>
 </LinearLayout>

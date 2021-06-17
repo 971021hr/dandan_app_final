@@ -53,44 +53,13 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_year"></Spinner>
-
                 <TextView
+                    android:id="@+id/run_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="년"
-                    android:textSize="18sp"></TextView>
+                    android:textSize="18sp"
+                    android:text="run_date"/>
 
-                <Spinner
-                    android:id="@+id/spinner_month"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_month"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="월"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_day"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="일"
-                    android:textSize="18sp"></TextView>
             </LinearLayout>
 
             <TextView
@@ -106,46 +75,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
+<!--                <TextView-->
+<!--                    android:id="@+id/run_time"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="rum_time"/>-->
                 <Spinner
-                    android:id="@+id/spinner_h"
-                    android:layout_width="match_parent"
+                    android:id="@+id/spinner_hour"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_weight="0.4"
                     android:entries="@array/hours"></Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="시"
+                    android:text=":"
+                    android:layout_weight="0.2"
+                    android:layout_marginRight="10dp"
                     android:textSize="18sp"></TextView>
-
                 <Spinner
-                    android:id="@+id/spinner_m"
-                    android:layout_width="match_parent"
+                    android:id="@+id/spinner_min"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_weight="0.4"
                     android:entries="@array/minutes"></Spinner>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="분"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_s"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/seconds"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="초"
-                    android:textSize="18sp"></TextView>
             </LinearLayout>
 
             <TextView
@@ -176,7 +136,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="직접 입력하세요."
-                    android:textSize="18sp"></EditText>
+                    android:textSize="18sp"
+                    android:id="@+id/editMainTxt"></EditText>
             </LinearLayout>
 
             <TextView
@@ -241,6 +202,7 @@
             android:textSize="18sp"></Button>
 
         <Button
+            android:id="@+id/btn_runOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

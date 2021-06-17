@@ -52,44 +52,12 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_year"
+                <TextView
+                    android:id="@+id/tv_body_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_year"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="년"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_month"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_month"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="월"
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/add_day"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="일"
-                    android:textSize="18sp"></TextView>
+                    android:text="오늘의 날짜"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <TextView
@@ -107,25 +75,13 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_w1"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_weight"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="."
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_w2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight2"></Spinner>
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,25 +105,13 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_m1"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_muscle"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="."
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_m2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight2"></Spinner>
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -191,25 +135,13 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinner_f1"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_fat"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight"></Spinner>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="."
-                    android:textSize="18sp"></TextView>
-
-                <Spinner
-                    android:id="@+id/spinner_f2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/weight2"></Spinner>
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,6 +161,7 @@
                 android:textStyle="bold"></TextView>
 
             <ImageView
+                android:id="@+id/body_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:adjustViewBounds="true"
@@ -257,12 +190,13 @@
             android:text="취소"></Button>
 
         <Button
+            android:id="@+id/btn_body_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="10dp"
-            android:textSize="18sp"
-            android:text="확인"></Button>
+            android:text="확인"
+            android:textSize="18sp"></Button>
 
     </LinearLayout>
 </LinearLayout>

@@ -50,7 +50,7 @@ public class Menu1Fragment extends Fragment {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
 
                 selectDate = date.getDate();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.EEE");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String formatDate = sdf.format(selectDate);
                 selectFormatDate = formatDate;
 

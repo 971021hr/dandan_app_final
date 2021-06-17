@@ -13,25 +13,25 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></android.support.v7.widget.Toolbar>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="25dp"
-            android:gravity="center"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/round_box"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="로그인 후 이용시 백업이 가능합니다 :)"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/round_box"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="로그인 후 이용시 백업이 가능합니다 :)"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,14 +95,14 @@
             android:text="로그인 상태 유지"
             android:textSize="12sp" />
 
-            <Button
-                android:id="@+id/login_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="15dp"
-                android:text="로그인"
-                android:textSize="18sp" />
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:text="로그인"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

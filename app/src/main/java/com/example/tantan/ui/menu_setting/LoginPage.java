@@ -147,24 +147,19 @@ public class LoginPage extends AppCompatActivity {
                 Toast.makeText(LoginPage.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 //SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
 
-               // finish();
+                // finish();
 
                 if (result.getCode() == 200) {
+                    String str = result.getMessage();
+                    String userName = result.getUserName();
+
                     SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
-                    Intent intent = new Intent();
+                    SharedPreference.setAttribute(LoginPage.this, "userPwd", mPasswordView.getText().toString());
+                    SharedPreference.setAttribute(LoginPage.this, "userName", userName);
                     setResult(RESULT_OK, intent);
 //                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
                     finish();
                 }
-//사용자정보 내장메모리에 저장
-
-//                if (SharedPreference.getAttribute(LoginPage.this, "userEmail").length() != 0) {//로그인 고유데이터(현재는 이메일) 길이 0 아닐시
-//                    Intent intent = new Intent(LoginPage.this, Menu5Fragment.class);
-//                    startActivity(intent);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
-//                    Toast.makeText(getApplicationContext(), "자동 로그인 되었습니다", Toast.LENGTH_SHORT).show();
-//                    finish();
-//                }
 
             }
 
@@ -195,27 +190,6 @@ public class LoginPage extends AppCompatActivity {
         }
     }
 
-/*
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.login_btn:
-                Intent intent = new Intent();
-                intent.putExtra("이름", "차현경");
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-
-            case R.id.join_text:
-                Intent join_intent = new Intent(this, JoinPage.class);
-                startActivity(join_intent);
-                break;
-
-            case R.id.findpw_text:
-                Intent findpw_intent = new Intent(this, PassWordPage.class);
-                startActivity(findpw_intent);
-                break;
-        }
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

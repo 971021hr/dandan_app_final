@@ -17,9 +17,7 @@ public class MealAdapter extends BaseAdapter {
 
     private ArrayList<MealItem> mealItemArrayList = new ArrayList<MealItem>();
 
-    public MealAdapter(){
-
-    }
+    public MealAdapter(){ }
 
     @Override
     public int getCount() {
@@ -37,13 +35,11 @@ public class MealAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.menu1_detail_meal,parent,false);
         }
 
-
         ImageView mealImg = (ImageView)convertView.findViewById(R.id.list_img);
         TextView mealTime = (TextView)convertView.findViewById(R.id.list_time);
         TextView mealMemo = (TextView)convertView.findViewById(R.id.list_memo);
 
         MealItem MealItem = mealItemArrayList.get(position);
-
 
         mealImg.setImageDrawable(MealItem.getMealImg());
         mealTime.setText(MealItem.getMealTime());
