@@ -87,23 +87,32 @@
                     android:id="@+id/spinner_hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.25"
                     android:entries="@array/hours"></Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
-                    android:layout_weight="0.2"
+                    android:text="분"
+                    android:layout_weight="0.25"
                     android:layout_marginRight="10dp"
                     android:textSize="18sp"></TextView>
+
                 <Spinner
                     android:id="@+id/spinner_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.25"
                     android:entries="@array/minutes"></Spinner>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="초"
+                    android:layout_weight="0.25"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18sp"></TextView>
 
             </LinearLayout>
 

@@ -181,7 +181,7 @@ public class menu_addrun extends AppCompatActivity {
         //runTime
         S_hours = Integer.parseInt(spinner_hour.getSelectedItem().toString());
         S_minutes = Integer.parseInt(spinner_min.getSelectedItem().toString());
-        hour_change_min = S_hours * 60;
+        // 시간을 분으로 바꾸는 코드 hour_change_min = S_hours * 60;
 
         String runDate = strRunDate;
         //String waterDate = sdf.format(c.getTime());
@@ -217,7 +217,7 @@ public class menu_addrun extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            addRun(new AddRunData(userEmail, runDate, hour_change_min, S_minutes,runMain,runSub));
+            addRun(new AddRunData(userEmail, runDate, S_hours, S_minutes,runMain,runSub));
         }
     }
 
