@@ -24,7 +24,6 @@ public class FeedBackPage extends AppCompatActivity {
     EditText mEditTitle;
     EditText mEditText;
     EditText mEditUserEmail;
-    //TextView txtResult;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,13 +83,7 @@ public class FeedBackPage extends AppCompatActivity {
                 startActivity(email);
 
                 finish();
-                /*
-                //데이터 담아서 팝업(액티비티) 호출
-                Intent intent2 = new Intent(this, PopUpButton1.class);
-                intent2.putExtra("data", "문의가 접수되었습니다.");
-                startActivityForResult(intent2, REQUEST_CODE);
 
-                 */
                 break;
         }
     }

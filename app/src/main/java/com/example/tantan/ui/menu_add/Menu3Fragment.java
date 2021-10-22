@@ -16,13 +16,6 @@ import com.example.tantan.R;
 public class Menu3Fragment extends Fragment {
 
     ImageButton btn_run, btn_meal, btn_body, btn_water;
-//    Button run_cancel;
-
-//    LinearLayout menu_layout;
-//    LinearLayout menu_layout_run;
-//    LinearLayout menu_layout_meal;
-//    LinearLayout menu_layout_body;
-//    LinearLayout menu_layout_water;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_menu3,container,false);
@@ -32,13 +25,6 @@ public class Menu3Fragment extends Fragment {
         btn_body = (ImageButton) rootView.findViewById(R.id.btn_body);
         btn_water = (ImageButton) rootView.findViewById(R.id.btn_water);
 
-//        menu_layout = (LinearLayout) rootView.findViewById(R.id.layout_menuadd);
-//        menu_layout_run = (LinearLayout) rootView.findViewById(R.id.layout_menuadd1);
-//        menu_layout_meal = (LinearLayout) rootView.findViewById(R.id.layout_menuadd2);
-//        menu_layout_body = (LinearLayout) rootView.findViewById(R.id.layout_menuadd3);
-//        menu_layout_water = (LinearLayout) rootView.findViewById(R.id.layout_menuadd4);
-//        run_cancel = (Button) rootView.findViewById(R.id.cancel1);
-
         btn_run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,11 +32,6 @@ public class Menu3Fragment extends Fragment {
             Intent intent = new Intent(getActivity(), menu_addrun.class);
             startActivity(intent);
 
-//                menu_layout.setVisibility(View.INVISIBLE);
-//                menu_layout_run.setVisibility(View.VISIBLE);
-//                menu_layout_meal.setVisibility(View.INVISIBLE);
-//                menu_layout_body.setVisibility(View.INVISIBLE);
-//                menu_layout_water.setVisibility(View.INVISIBLE);
             }
         });
         btn_meal.setOnClickListener(new View.OnClickListener() {
@@ -59,11 +40,6 @@ public class Menu3Fragment extends Fragment {
                 Intent intent = new Intent(getActivity(), menu_addmeal.class);
                 startActivity(intent);
 
-//                menu_layout.setVisibility(View.INVISIBLE);
-//                menu_layout_run.setVisibility(View.INVISIBLE);
-//                menu_layout_meal.setVisibility(View.VISIBLE);
-//                menu_layout_body.setVisibility(View.INVISIBLE);
-//                menu_layout_water.setVisibility(View.INVISIBLE);
             }
         });
         btn_body.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +47,7 @@ public class Menu3Fragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), menu_addbody.class);
                 startActivity(intent);
-//                menu_layout.setVisibility(View.INVISIBLE);
-//                menu_layout_run.setVisibility(View.INVISIBLE);
-//                menu_layout_meal.setVisibility(View.INVISIBLE);
-//                menu_layout_body.setVisibility(View.VISIBLE);
-//                menu_layout_water.setVisibility(Vi
-//                ew.INVISIBLE);
+
             }
         });
         btn_water.setOnClickListener(new View.OnClickListener() {
@@ -85,11 +56,6 @@ public class Menu3Fragment extends Fragment {
                 Intent intent = new Intent(getActivity(), menu_addwater.class);
                 startActivity(intent);
 
-//                menu_layout.setVisibility(View.INVISIBLE);
-//                menu_layout_run.setVisibility(View.INVISIBLE);
-//                menu_layout_meal.setVisibility(View.INVISIBLE);
-//                menu_layout_body.setVisibility(View.INVISIBLE);
-//                menu_layout_water.setVisibility(View.VISIBLE);
             }
         });
         return rootView;

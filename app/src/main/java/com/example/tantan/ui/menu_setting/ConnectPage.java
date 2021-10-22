@@ -5,21 +5,45 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tantan.R;
+import com.example.tantan.data.ConnectData;
+import com.example.tantan.data.NameData;
+import com.example.tantan.data.NameResponse;
+import com.example.tantan.network.RetrofitClient;
+import com.example.tantan.network.ServiceApi;
+import com.example.tantan.network.SharedPreference;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ConnectPage extends AppCompatActivity {
+    String strEmail = "";
+    String strRandom = "";
+
+    private ServiceApi service;
+    private EditText editRandom;
+    private Button btnOK;
 
     private static final int REQUEST_CODE = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.connect_layout);
+        setContentView(R.layout.mirror_connect_layout);
+
+        editRandom = (EditText) findViewById(R.id.connect_code);
+        btnOK = (Button)findViewById(R.id.connect_btn);
+        service = RetrofitClient.getClient().create(ServiceApi.class);
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -27,61 +51,66 @@ public class ConnectPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("스마트 미러 연결");
 
-      //  ActionBar actionBar = getSupportActionBar();
-      //  actionBar.setTitle("스마트 미러 연결");
-      //  actionBar.setDisplayHomeAsUpEnabled(true);
+        strEmail = SharedPreference.getAttribute(this,"userEmail");
+        strRandom = editRandom.getText().toString();
 
-        ListView listview;
-        ConnectListViewAdapter adapter;
-
-        adapter = new ConnectListViewAdapter() ;
-
-        listview = (ListView) findViewById(R.id.connect_sm_list);
-        listview.setAdapter(adapter);
-
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_baseline_phonelink_ring_24),
-                "우리집 스마트미러");
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_baseline_phonelink_ring_24),
-                "옆집 스마트미러");
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_baseline_phonelink_ring_24),
-                "윗집 스마트미러");
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ConnectListViewItem item = (ConnectListViewItem) adapter.getItem(position);
-                switch (item.getSm()) {
-                    case "우리집 스마트미러":
-                        Intent intent = new Intent(ConnectPage.this, PopUpButton1.class);
-                        intent.putExtra("data", "연결이 완료되었습니다.");
-                        startActivityForResult(intent, REQUEST_CODE);
-                        break;
-                    case "옆집 스마트미러":
-                        break;
-                    case "윗집 스마트미러":
-                        break;
-                }
+            public void onClick(View v) {
+                attemptConnect();
+                finish();
             }
         });
+
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_CODE:
-                if (resultCode == RESULT_OK)
+    private void attemptConnect(){
+        editRandom.setError(null);
+
+        strEmail = SharedPreference.getAttribute(this,"userEmail");
+        strRandom = editRandom.getText().toString();
+
+        View focusView = null;
+
+        if (strRandom.isEmpty()) {
+            editRandom.setError("랜덤값을 입력해주세요.");
+            focusView = editRandom;
+        }else {
+            startConnect(new ConnectData(strEmail, strRandom));
+        }
+    }
+
+    private void startConnect(ConnectData data){
+        service.userDataConnect(data).enqueue(new Callback<NameResponse>() {
+            @Override
+            public void onResponse(Call<NameResponse> call, Response<NameResponse> response) {
+                NameResponse result = response.body();
+
+                if (result.getCode() == 200) {
+                    Toast.makeText(ConnectPage.this, "스마트미러 연결 성공", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+
                     finish();
-                break;
-        }
-    }
+                }else if(result.getCode() == 204){
+                    Toast.makeText(ConnectPage.this, "랜덤값 잘 못 입력", Toast.LENGTH_SHORT).show();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                finish();
-                return true;
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+
+                    finish();
+                }
+
+
             }
-        }
-        return super.onOptionsItemSelected(item);
+
+            @Override
+            public void onFailure(Call<NameResponse> call, Throwable t) {
+
+                Log.e("연결 에러 발생", t.getMessage());
+
+            }
+        });
     }
 }

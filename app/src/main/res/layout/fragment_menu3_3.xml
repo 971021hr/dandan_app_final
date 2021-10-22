@@ -167,7 +167,8 @@
                 android:adjustViewBounds="true"
                 android:background="@drawable/text_box"
                 android:onClick="Picture"
-                android:src="@drawable/ic_baseline_add_photo_alternate_24"></ImageView>
+                android:src="@drawable/ic_baseline_add_photo_alternate_24">
+            </ImageView>
         </LinearLayout>
     </ScrollView>
 

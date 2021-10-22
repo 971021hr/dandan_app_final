@@ -5,4 +5,18 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="imgArray_meal">
+        <item>@drawable/img_meal1</item>
+        <item>@drawable/img_meal2</item>
+        <item>@drawable/img_meal3</item>
+        <item>@drawable/img_meal4</item>
+    </array>
+
+    <array name="imgArray_run">
+        <item>@drawable/img_leg</item>
+        <item>@drawable/img_chest</item>
+        <item>@drawable/img_back</item>
+    </array>
+
 </resources>

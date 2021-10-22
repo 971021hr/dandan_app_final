@@ -37,9 +37,6 @@ public class PassWordPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setTitle("개인정보");
 
-        //    ActionBar actionBar = getSupportActionBar();
-        //     actionBar.setTitle("개인정보");
-
         mUserPwd_p = (EditText) findViewById(R.id.userPwd_p);
         mUserPwd_n = (EditText) findViewById(R.id.userPwd_n);
         mUserPwd_n_c = (EditText) findViewById(R.id.userPwd_n_c);
@@ -144,30 +141,4 @@ public class PassWordPage extends AppCompatActivity {
         return password.length() >= 6;
     }
 
-
-    /*
-    public void onBClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_pwdcancel:
-                finish();
-                break;
-
-            case R.id.btn_pwdfinish:
-                AlertDialog.Builder dlg = new AlertDialog.Builder(PassWordPage.this);
-                dlg.setTitle("단단");
-                dlg.setMessage("비밀번호가 변경되었습니다.");
-                dlg.setIcon(R.drawable.ic_baseline_lock_24);
-                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                });
-                dlg.show();
-
-                break;
-        }
-    }
-
-     */
 }

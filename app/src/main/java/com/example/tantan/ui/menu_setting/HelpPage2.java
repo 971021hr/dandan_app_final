@@ -47,13 +47,6 @@ public class HelpPage2 extends AppCompatActivity {
 
         getHelpDetail();
 
-        /*String q_n = intent.getStringExtra("질문 번호");
-        String q_t = intent.getStringExtra("질문 제목");
-        String q_a = intent.getStringExtra("질문 답변");
-
-        q_number.setText(q_n);
-        q_title.setText(q_t);
-        q_answer.setText(q_a);*/
     }
 
     @Override

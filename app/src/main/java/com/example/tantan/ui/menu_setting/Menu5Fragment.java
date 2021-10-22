@@ -46,8 +46,6 @@ public class Menu5Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //if (SharedPreference.getAttribute(getActivity(), "userEmail").length() != 0) {//로그인 고유데이터(현재는 이메일) 길이 0 아닐시
-
                 Intent intent = new Intent(getActivity(), LoginPage.class);
                 startActivityForResult(intent, RESULT_CODE);
 
@@ -80,9 +78,7 @@ public class Menu5Fragment extends Fragment {
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), Menu5Fragment.class);
-//                startActivity(intent);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
+
                 Toast.makeText(getActivity(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                 SharedPreference.setAttribute(getActivity(), "userEmail", "");
 
@@ -176,22 +172,6 @@ public class Menu5Fragment extends Fragment {
 
     }
 
-    /*
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_btn:
-                Intent intent = new Intent(getActivity(), LoginPage.class);
-                startActivityForResult(intent, RESULT_CODE);
-                break;
-
-            case R.id.logout_btn:
-                user_name.setText("사용자");
-                sign_btn.setVisibility(View.VISIBLE);
-                logout_btn.setVisibility(View.GONE);
-                break;
-        }
-    }
-*/
 
     //21.03.14 hr 스크롤뷰 고정 함수 생성
     //한 페이지 안에 2개 이상 listview 사용 + 스크롤뷰 사용 시 문제 있어서 필요

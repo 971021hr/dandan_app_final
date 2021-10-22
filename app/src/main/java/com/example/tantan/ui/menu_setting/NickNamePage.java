@@ -41,9 +41,6 @@ public class NickNamePage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setTitle("개인정보");
 
-        //ActionBar actionBar = getSupportActionBar();
-       // actionBar.setTitle("개인정보");
-
         strEmail = SharedPreference.getAttribute(this,"userEmail");
 
 

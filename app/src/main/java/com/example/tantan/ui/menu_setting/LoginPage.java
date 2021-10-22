@@ -58,10 +58,6 @@ public class LoginPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("로그인/회원가입");
 
-        // ActionBar actionBar = getSupportActionBar();
-        //actionBar.setTitle("로그인");
-        //actionBar.setDisplayHomeAsUpEnabled(true);
-
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.login_email);
@@ -143,10 +139,6 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
-
-                //SharedPreference.setAttribute(LoginPage.this, "userEmail", mEmailView.getText().toString());
-
-                // finish();
 
                 if (result.getCode() == 200) {
                     String str = result.getMessage();

@@ -3,6 +3,7 @@ package com.example.tantan.ui.menu_community;
 import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -61,11 +62,15 @@ public class Menu2Fragment extends Fragment {
 
     ArrayList<VerticalData> data01 = new ArrayList<>();
 
+    TypedArray imgArrayMeal, imgArrayRun;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_menu2,container,false);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
+        imgArrayMeal = getResources().obtainTypedArray(R.array.imgArray_meal);
+        imgArrayRun = getResources().obtainTypedArray(R.array.imgArray_run);
 
         mVerticalView = (RecyclerView)rootView.findViewById(R.id.vertical_list);
         mVerticalView01 = (RecyclerView)rootView.findViewById(R.id.vertical_list01);
@@ -213,7 +218,7 @@ public class Menu2Fragment extends Fragment {
         int i = 0;
         while (i<lenArr){
             String str_tip = runList.get(i);
-            this.data.add(new VerticalData(R.mipmap.ic_launcher,str_tip,"운동"));
+            this.data.add(new VerticalData(imgArrayRun.getResourceId(i,0),str_tip,"운동"));
             i++;
         }
 
@@ -235,7 +240,7 @@ public class Menu2Fragment extends Fragment {
         int i = 0;
         while (i<lenArr01){
             String str_tip = mealList.get(i);
-            this.data01.add(new VerticalData(R.mipmap.ic_launcher,str_tip,"식단"));
+            this.data01.add(new VerticalData(imgArrayMeal.getResourceId(i,0),str_tip,"식단"));
             i++;
         }
 

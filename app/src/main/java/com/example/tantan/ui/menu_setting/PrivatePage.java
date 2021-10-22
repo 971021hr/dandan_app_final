@@ -29,13 +29,6 @@ public class PrivatePage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("개인정보");
 
-        /*
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("개인정보");
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-         */
-
         ListView listview;
         ListViewAdapter2 adapter;
 

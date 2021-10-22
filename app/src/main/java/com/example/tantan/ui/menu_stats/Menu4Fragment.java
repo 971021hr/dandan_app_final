@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.tantan.R;
 import com.example.tantan.data.StatsDataWeek;
@@ -46,6 +47,7 @@ public class Menu4Fragment extends Fragment {
     String[] s_item;
     LineChart lineChart1;
     LineChart lineChart2;
+    TextView txt_body, txt_run;
 
     String email="";
 
@@ -80,11 +82,6 @@ public class Menu4Fragment extends Fragment {
 
     int intRun = 0;
 
-/*
-    Date monthDate = new Date(todayDate.getTime() + 86400000*-4*7);
-    String strStartDateMonth = format.format(monthDate);
-*/
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         c.setTime(todayDate);
         c.add(c.MONTH,-1);
@@ -95,6 +92,9 @@ public class Menu4Fragment extends Fragment {
         strStartDateYear = "";
 
         View view = inflater.inflate(R.layout.fragment_menu4, container, false);
+
+        txt_body = (TextView)view.findViewById(R.id.txt_weight);
+        txt_run = (TextView)view.findViewById(R.id.txt_run);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
         email = SharedPreference.getAttribute(getContext() ,"userEmail");
@@ -164,42 +164,53 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsResponse> call, Response<StatsResponse> response) {
                 StatsResponse result = response.body();
-                int arrLen = result.getResult();
 
-                int[] run_time = result.getRunTime();
+                if (result.getCode() == 200){
+                    txt_run.setVisibility(View.GONE);
+                    lineChart2.setVisibility(View.VISIBLE);
 
-                entries_run.clear();
+                    int arrLen = result.getResult();
 
-                long[] run_long = new long[arrLen];
-                String[] run_date = result.getRunDate();
+                    int[] run_time = result.getRunTime();
 
-                for (int i = 0; i<arrLen; i++){
+                    entries_run.clear();
 
-                    Log.e("날짜를 string으로 : ", run_date[i]);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    try {
-                        Date date =  dateFormat.parse(run_date[i]);
-                        long long_body = date.getTime();
-                        Log.e("날짜를 long으로 : ", String.valueOf(long_body));
-                        run_long[i] = long_body;
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                    long[] run_long = new long[arrLen];
+                    String[] run_date = result.getRunDate();
+
+                    for (int i = 0; i<arrLen; i++){
+
+                        Log.e("날짜를 string으로 : ", run_date[i]);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            Date date =  dateFormat.parse(run_date[i]);
+                            long long_body = date.getTime();
+                            Log.e("날짜를 long으로 : ", String.valueOf(long_body));
+                            run_long[i] = long_body;
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_run.add(new Entry(run_long[i], run_time[i]));
+                    }
+
+                    long run_sub = run_long[arrLen-1] - run_long[0];
+                    Date date = new Date((long) (run_sub));
+
+                    //Specify the format you'd like
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd", Locale.ENGLISH);
+                    Log.e("며칠? " , sdf.format(date));
+
+                    xAxisLen = Integer.parseInt(sdf.format(date));
+                    addChart2();
+                }else if(result.getCode() == 204){
+                    txt_run.setVisibility(View.VISIBLE);
+                    lineChart2.setVisibility(View.GONE);
                 }
 
-                for(int i=0; i<arrLen; i++) {
-                    entries_run.add(new Entry(run_long[i], run_time[i]));
-                }
 
-                long run_sub = run_long[arrLen-1] - run_long[0];
-                Date date = new Date((long) (run_sub));
-
-                //Specify the format you'd like
-                SimpleDateFormat sdf = new SimpleDateFormat("dd", Locale.ENGLISH);
-                Log.e("며칠? " , sdf.format(date));
-
-                xAxisLen = Integer.parseInt(sdf.format(date));
-                addChart2();
             }
 
             @Override
@@ -214,34 +225,44 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsResponse> call, Response<StatsResponse> response) {
                 StatsResponse result = response.body();
-                int arrLen = result.getResult();
 
-                int[] run_time = result.getRunTime();
+                if (result.getCode() == 200){
+                    txt_run.setVisibility(View.GONE);
+                    lineChart2.setVisibility(View.VISIBLE);
 
-                entries_run.clear();
+                    int arrLen = result.getResult();
 
-                long[] run_long = new long[arrLen];
-                String[] run_date = result.getRunDate();
+                    int[] run_time = result.getRunTime();
 
-                for (int i = 0; i<arrLen; i++){
+                    entries_run.clear();
 
-                    Log.e("날짜를 string으로 : ", run_date[i]);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    try {
-                        Date date =  dateFormat.parse(run_date[i]);
-                        long long_body = date.getTime();
-                        Log.e("날짜를 long으로 : ", String.valueOf(long_body));
-                        run_long[i] = long_body;
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                    long[] run_long = new long[arrLen];
+                    String[] run_date = result.getRunDate();
+
+                    for (int i = 0; i<arrLen; i++){
+
+                        Log.e("날짜를 string으로 : ", run_date[i]);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            Date date =  dateFormat.parse(run_date[i]);
+                            long long_body = date.getTime();
+                            Log.e("날짜를 long으로 : ", String.valueOf(long_body));
+                            run_long[i] = long_body;
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_run.add(new Entry(run_long[i], run_time[i]));
+                    }
+
+                    addChart2();
+                }else if(result.getCode() == 204){
+                    txt_run.setVisibility(View.VISIBLE);
+                    lineChart2.setVisibility(View.GONE);
                 }
 
-                for(int i=0; i<arrLen; i++) {
-                    entries_run.add(new Entry(run_long[i], run_time[i]));
-                }
-
-                addChart2();
 
             }
 
@@ -257,29 +278,38 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsResponse> call, Response<StatsResponse> response) {
                 StatsResponse result = response.body();
-                int arrLen = result.getResult();
-                intRun = arrLen;
 
-                int[] run_long = new int[arrLen];
-                String[] run_date = result.getRunDate();
+                if (result.getCode() == 200){
+                    txt_run.setVisibility(View.GONE);
+                    lineChart2.setVisibility(View.VISIBLE);
 
-                for (int i = 0; i<arrLen; i++){
+                    int arrLen = result.getResult();
+                    intRun = arrLen;
 
-                    String run_month[] = run_date[i].split("-");
-                    run_long[i] = Integer.parseInt(run_month[1]);
+                    int[] run_long = new int[arrLen];
+                    String[] run_date = result.getRunDate();
 
+                    for (int i = 0; i<arrLen; i++){
+
+                        String run_month[] = run_date[i].split("-");
+                        run_long[i] = Integer.parseInt(run_month[1]);
+
+                    }
+
+                    int[] run_time = result.getRunTime();
+
+                    entries_run.clear();
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_run.add(new Entry(run_long[i], run_time[i]));
+                    }
+
+                    xAxisLen = run_long[arrLen-1] - run_long[0] + 1;
+                    addChart2();
+                }else if(result.getCode() == 204){
+                    txt_run.setVisibility(View.VISIBLE);
+                    lineChart2.setVisibility(View.GONE);
                 }
-
-                int[] run_time = result.getRunTime();
-
-                entries_run.clear();
-
-                for(int i=0; i<arrLen; i++) {
-                    entries_run.add(new Entry(run_long[i], run_time[i]));
-                }
-
-                xAxisLen = run_long[arrLen-1] - run_long[0] + 1;
-                addChart2();
             }
 
             @Override
@@ -306,49 +336,61 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsWeekResponse> call, Response<StatsWeekResponse> response) {
                 StatsWeekResponse result = response.body();
-                int arrLen = result.getArrLen();
 
-                long[] body_long = new long[arrLen];
-                String[] body_date = result.getBodyDate();
+                if (result.getCode() == 200){
+                    txt_body.setVisibility(View.GONE);
+                    lineChart1.setVisibility(View.VISIBLE);
 
-                for (int i = 0; i<arrLen; i++){
+                    int arrLen = result.getArrLen();
 
-                    Log.e("날짜를 string으로 : ", body_date[i]);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    try {
-                        Date date =  dateFormat.parse(body_date[i]);
-                        long long_body = date.getTime();
-                        Log.e("날짜를 long으로 : ", String.valueOf(long_body));
-                        body_long[i] = long_body;
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                    long[] body_long = new long[arrLen];
+                    String[] body_date = result.getBodyDate();
+
+                    for (int i = 0; i<arrLen; i++){
+
+                        Log.e("날짜를 string으로 : ", body_date[i]);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            Date date =  dateFormat.parse(body_date[i]);
+                            long long_body = date.getTime();
+                            Log.e("날짜를 long으로 : ", String.valueOf(long_body));
+                            body_long[i] = long_body;
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
+                    Float[] body_weight =  result.getBodyWeight();
+                    Float[] body_muscle = result.getBodyMuscle();
+                    Float[] body_fat = result.getBodyFat();
+
+                    entries_w.clear();
+                    entries_m.clear();
+                    entries_f.clear();
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_w.add(new Entry(body_long[i], body_weight[i]));
+                        entries_m.add(new Entry(body_long[i], body_muscle[i]));
+                        entries_f.add(new Entry(body_long[i], body_fat[i]));
+                    }
+
+                    long body_sub = body_long[arrLen-1] - body_long[0];
+                    Date date = new Date((long) (body_sub));
+
+                    //Specify the format you'd like
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd", Locale.ENGLISH);
+                    Log.e("며칠? " , sdf.format(date));
+
+                    xAxisLen = Integer.parseInt(sdf.format(date));
+                    addChart();
+                }else if (result.getCode() == 204){
+                    txt_body.setVisibility(View.VISIBLE);
+                    lineChart1.setVisibility(View.GONE);
+
                 }
 
-                Float[] body_weight =  result.getBodyWeight();
-                Float[] body_muscle = result.getBodyMuscle();
-                Float[] body_fat = result.getBodyFat();
 
-                entries_w.clear();
-                entries_m.clear();
-                entries_f.clear();
-
-                for(int i=0; i<arrLen; i++) {
-                    entries_w.add(new Entry(body_long[i], body_weight[i]));
-                    entries_m.add(new Entry(body_long[i], body_muscle[i]));
-                    entries_f.add(new Entry(body_long[i], body_fat[i]));
-                }
-
-                long body_sub = body_long[arrLen-1] - body_long[0];
-                Date date = new Date((long) (body_sub));
-
-                //Specify the format you'd like
-                SimpleDateFormat sdf = new SimpleDateFormat("dd", Locale.ENGLISH);
-                Log.e("며칠? " , sdf.format(date));
-
-                xAxisLen = Integer.parseInt(sdf.format(date));
-                addChart();
 
             }
 
@@ -364,40 +406,52 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsWeekResponse> call, Response<StatsWeekResponse> response) {
                 StatsWeekResponse result = response.body();
-                int arrLen = result.getArrLen();
+                if (result.getCode() == 200){
+                    txt_body.setVisibility(View.GONE);
+                    lineChart1.setVisibility(View.VISIBLE);
 
-                long[] body_long = new long[arrLen];
-                String[] body_date = result.getBodyDate();
+                    int arrLen = result.getArrLen();
 
-                for (int i = 0; i<arrLen; i++){
+                    long[] body_long = new long[arrLen];
+                    String[] body_date = result.getBodyDate();
 
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    try {
-                        Date date =  dateFormat.parse(body_date[i]);
-                        long long_body = date.getTime();
-                        Log.e("날짜를 long으로 : ", String.valueOf(long_body));
-                        body_long[i] = long_body;
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                    for (int i = 0; i<arrLen; i++){
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            Date date =  dateFormat.parse(body_date[i]);
+                            long long_body = date.getTime();
+                            Log.e("날짜를 long으로 : ", String.valueOf(long_body));
+                            body_long[i] = long_body;
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
+                    Float[] body_weight =  result.getBodyWeight();
+                    Float[] body_muscle = result.getBodyMuscle();
+                    Float[] body_fat = result.getBodyFat();
+
+                    entries_w.clear();
+                    entries_m.clear();
+                    entries_f.clear();
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_w.add(new Entry(body_long[i], body_weight[i]));
+                        entries_m.add(new Entry(body_long[i], body_muscle[i]));
+                        entries_f.add(new Entry(body_long[i], body_fat[i]));
+                    }
+
+                    addChart();
+
+                }else if (result.getCode() == 204){
+                    txt_body.setVisibility(View.VISIBLE);
+                    lineChart1.setVisibility(View.GONE);
+
                 }
 
-                Float[] body_weight =  result.getBodyWeight();
-                Float[] body_muscle = result.getBodyMuscle();
-                Float[] body_fat = result.getBodyFat();
 
-                entries_w.clear();
-                entries_m.clear();
-                entries_f.clear();
-
-                for(int i=0; i<arrLen; i++) {
-                    entries_w.add(new Entry(body_long[i], body_weight[i]));
-                    entries_m.add(new Entry(body_long[i], body_muscle[i]));
-                    entries_f.add(new Entry(body_long[i], body_fat[i]));
-                }
-
-                addChart();
             }
 
             @Override
@@ -412,36 +466,47 @@ public class Menu4Fragment extends Fragment {
             @Override
             public void onResponse(Call<StatsWeekResponse> call, Response<StatsWeekResponse> response) {
                 StatsWeekResponse result = response.body();
-                int arrLen = result.getArrLen();
 
-                int[] body_long = new int[arrLen];
-                String[] body_date = result.getBodyDate();
+                if (result.getCode() == 200){
+                    txt_body.setVisibility(View.GONE);
+                    lineChart1.setVisibility(View.VISIBLE);
 
-                for (int i = 0; i<arrLen; i++){
+                    int arrLen = result.getArrLen();
 
-                    String body_month[] = body_date[i].split("-");
-                    body_long[i] = Integer.parseInt(body_month[1]);
+                    int[] body_long = new int[arrLen];
+                    String[] body_date = result.getBodyDate();
+
+                    for (int i = 0; i<arrLen; i++){
+
+                        String body_month[] = body_date[i].split("-");
+                        body_long[i] = Integer.parseInt(body_month[1]);
+
+                    }
+
+                    Float[] body_weight =  result.getBodyWeight();
+                    Float[] body_muscle = result.getBodyMuscle();
+                    Float[] body_fat = result.getBodyFat();
+
+                    entries_w.clear();
+                    entries_m.clear();
+                    entries_f.clear();
+
+                    for(int i=0; i<arrLen; i++) {
+                        entries_w.add(new Entry(body_long[i], body_weight[i]));
+                        entries_m.add(new Entry(body_long[i], body_muscle[i]));
+                        entries_f.add(new Entry(body_long[i], body_fat[i]));
+                    }
+
+                    Log.e("몇달? " , String.valueOf(body_long[arrLen-1] - body_long[0] + 1));
+
+                    xAxisLen = body_long[arrLen-1] - body_long[0] + 1;
+                    addChart();
+                }else if (result.getCode() == 204){
+                    txt_body.setVisibility(View.VISIBLE);
+                    lineChart1.setVisibility(View.GONE);
 
                 }
 
-                Float[] body_weight =  result.getBodyWeight();
-                Float[] body_muscle = result.getBodyMuscle();
-                Float[] body_fat = result.getBodyFat();
-
-                entries_w.clear();
-                entries_m.clear();
-                entries_f.clear();
-
-                for(int i=0; i<arrLen; i++) {
-                    entries_w.add(new Entry(body_long[i], body_weight[i]));
-                    entries_m.add(new Entry(body_long[i], body_muscle[i]));
-                    entries_f.add(new Entry(body_long[i], body_fat[i]));
-                }
-
-                Log.e("몇달? " , String.valueOf(body_long[arrLen-1] - body_long[0] + 1));
-
-                xAxisLen = body_long[arrLen-1] - body_long[0] + 1;
-                addChart();
 
             }
 
@@ -535,32 +600,5 @@ public class Menu4Fragment extends Fragment {
         lineChart2.invalidate();
     }
 
-    /*
-    private void addChartRunYear() {
-        LineData chartData = new LineData();
-        LineDataSet set4 = new LineDataSet(entries_run, "운동 시간 (분 단위)");
-        chartData.addDataSet(set4);
-        set4.setColor(Color.BLACK);
-        set4.setCircleColor(Color.BLACK);
-
-        XAxis xAxisYear = lineChart2.getXAxis();
-        xAxisYear.setValueFormatter(new IndexAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                Double value2 = Double.parseDouble(String.valueOf(value));
-                long value3 = (long) (Math.ceil(value2 / 1000000) * 1000000);
-                Date date = new Date((long) (value3));
-
-                //Specify the format you'd like
-                SimpleDateFormat sdf = new SimpleDateFormat("MM", Locale.ENGLISH);
-                return sdf.format(date);
-            }
-        });
-        xAxisYear.setLabelCount(intRun, true);
-
-        lineChart2.setData(chartData);
-        lineChart2.invalidate();
-    }
-     */
 
 }

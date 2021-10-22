@@ -29,8 +29,10 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.tantan.R;
 import com.example.tantan.data.ArrayData;
 import com.example.tantan.data.BodyResponse;
+import com.example.tantan.data.DeleteData;
 import com.example.tantan.data.MealResponse;
 import com.example.tantan.data.RunResponse;
+import com.example.tantan.data.SimpleResponse;
 import com.example.tantan.data.WaterGetResponse;
 import com.example.tantan.network.RetrofitClient;
 import com.example.tantan.network.ServiceApi;
@@ -38,6 +40,7 @@ import com.example.tantan.network.SharedPreference;
 import com.example.tantan.ui.menu_add.menu_addbody;
 import com.example.tantan.ui.menu_add.menu_addmeal;
 import com.example.tantan.ui.menu_add.menu_addrun;
+import com.example.tantan.ui.menu_setting.ConnectPage;
 
 import java.io.File;
 import java.lang.reflect.Array;
@@ -56,7 +59,7 @@ public class CalenderDetail extends AppCompatActivity{
     LinearLayout layoutMeal;
     LinearLayout layoutBody;
     TextView txtWater;
-    TextView txtNotData;
+    TextView txtNotData,txtNonData_body,txtNonData_meal;
     SwipeMenuListView listMeal;
     SwipeMenuListView listBody;
     SwipeMenuListView listExercise;
@@ -90,6 +93,8 @@ public class CalenderDetail extends AppCompatActivity{
 
         txtSelect = (TextView)findViewById(R.id.txt_select);
         txtNotData = (TextView)findViewById(R.id.txt_notData);
+        txtNonData_body = (TextView)findViewById(R.id.txt_notData_body);
+        txtNonData_meal = (TextView)findViewById(R.id.txt_notData_meal);
 
         Intent intent = getIntent();
         select_date = intent.getStringExtra("날짜");
@@ -110,21 +115,8 @@ public class CalenderDetail extends AppCompatActivity{
 
         progressbar = (ProgressBar) findViewById(R.id.progressBar);
 
-        //이거 사용
-
-        //운동 정보 list 추가
-
-
-
-
         getWaterData();
         getRunData();
-
-
-        /*exerciseAdapter.addItem("헬스","01:05:50"," ·스쿼트 3set \n ·런지 5set \n ·풀업 3set");
-        exerciseAdapter.addItem("요가","00:40:33"," ·다운독 \n ·스쿼트 \n ·기타 등등");*/
-
-        //listExercise.setAdapter(exerciseAdapter);
 
 
         //식단 list 추가 >> 나중에 DB 연결
@@ -132,11 +124,7 @@ public class CalenderDetail extends AppCompatActivity{
         mealAdapter = new MealAdapter();
         listMeal.setAdapter(mealAdapter);
 
-
-
         mAppList = getPackageManager().getInstalledApplications(0);
-
-
 
         SwipeMenuCreator creator = new SwipeMenuCreator() {
             @Override
@@ -170,11 +158,12 @@ public class CalenderDetail extends AppCompatActivity{
                 switch (index) {
                     case 0:
                         // open
-                        open(item);
+                        open(item,position);
                         break;
                     case 1:
                         // delete
 //                      delete(item);
+                        deleteMealData(position);
                         mAppList.remove(position);
                         mealAdapter.notifyDataSetChanged();
                         break;
@@ -196,8 +185,6 @@ public class CalenderDetail extends AppCompatActivity{
                 // swipe end
             }
         });
-
-        mealAdapter.addItem(ContextCompat.getDrawable(this,R.drawable.ic_baseline_fastfood_24)," "," ");
 
         //신체 눈바디 등 정보 list 추가
         listBody.setAdapter(bodyAdapter);
@@ -249,11 +236,12 @@ public class CalenderDetail extends AppCompatActivity{
                 switch (index) {
                     case 0:
                         // open
-                        open3(item);
+                        open3(position);
                         break;
                     case 1:
                         // delete
 //                      delete(item);
+                        deleteRunData(position);
                         mAppList.remove(position);
                         exerciseAdapter.notifyDataSetChanged();
                         break;
@@ -315,10 +303,82 @@ public class CalenderDetail extends AppCompatActivity{
         super.onBackPressed();
     }
 
+    //운동 삭제
+    private void deleteRunData(int position){
+        userEmail = SharedPreference.getAttribute(this,"userEmail");
+        selectDate = select_date;
+        int selectNum = position;
+
+        startDeleteRunData(new DeleteData(userEmail,selectDate,selectNum));
+    }
+
+    private void startDeleteRunData(DeleteData data){
+        service.userDataRunDelete(data).enqueue(new Callback<SimpleResponse>(){
+
+            @Override
+            public void onResponse(Call<SimpleResponse> call, Response<SimpleResponse> response) {
+                SimpleResponse result = response.body();
+
+                if (result.getCode() == 200) {
+                    Toast.makeText(CalenderDetail.this, "삭제 성공", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+
+                    finish();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SimpleResponse> call, Throwable t) {
+                Toast.makeText(CalenderDetail.this, "삭제 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    //식단 삭제
+    private void deleteMealData(int position){
+        userEmail = SharedPreference.getAttribute(this,"userEmail");
+        selectDate = select_date;
+        int selectNum = position;
+
+        startDeleteMealData(new DeleteData(userEmail,selectDate,selectNum));
+    }
+
+    private void startDeleteMealData(DeleteData data){
+        service.userDataMealDelete(data).enqueue(new Callback<SimpleResponse>(){
+
+            @Override
+            public void onResponse(Call<SimpleResponse> call, Response<SimpleResponse> response) {
+                SimpleResponse result = response.body();
+
+                if (result.getCode() == 200) {
+                    Toast.makeText(CalenderDetail.this, "삭제 성공", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+
+                    finish();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SimpleResponse> call, Throwable t) {
+                Toast.makeText(CalenderDetail.this, "삭제 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
     //식단 수정
-    private void open(ApplicationInfo item) {
-        Intent update_intent = new Intent(CalenderDetail.this, menu_addmeal.class);
-        startActivity(update_intent);
+    private void open(ApplicationInfo item, int position) {
+        Intent intent = new Intent(CalenderDetail.this, Modify_meal.class);
+        intent.putExtra("selectNum",position);
+        intent.putExtra("selectDate",select_date);
+        startActivity(intent);
         finish();
     }
 
@@ -330,10 +390,14 @@ public class CalenderDetail extends AppCompatActivity{
     }
 
     //운동 수정
-    private void open3(ApplicationInfo item) {
-        Intent update_intent = new Intent(CalenderDetail.this, menu_addrun.class);
-        startActivity(update_intent);
-        finish();
+    private void open3(int position) {
+
+
+        Intent intent = new Intent(CalenderDetail.this, Modify_run.class);
+        intent.putExtra("selectNum",position);
+        intent.putExtra("selectDate",select_date);
+        startActivity(intent);
+
     }
 
     //list 여백주기
@@ -451,12 +515,12 @@ public class CalenderDetail extends AppCompatActivity{
                         listMeal.setAdapter(mealAdapter);
                     }
 
+                    txtNonData_meal.setVisibility(View.GONE);
+
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
                 } else {
-                    mealAdapter.addItem(ContextCompat.getDrawable(CalenderDetail.this,R.drawable.ic_baseline_person_24),"식사 시간", "식단 메모");
-                    mealAdapter.notifyDataSetChanged();
-                    listMeal.setAdapter(mealAdapter);
+                    txtNonData_meal.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -489,6 +553,8 @@ public class CalenderDetail extends AppCompatActivity{
                     Log.e("사진", String.valueOf(bitmap));
                     Drawable body_drawable_image = new BitmapDrawable(bitmap);
 
+                    txtNonData_body.setVisibility(View.GONE);
+
                     bodyAdapter.addItem(body_drawable_image,"몸무게 : " + body_weight + " kg", "골격근 : " + body_muscle + " kg", "체지방 : " + body_fat + " kg");
                     bodyAdapter.notifyDataSetChanged();
                     listBody.setAdapter(bodyAdapter);
@@ -496,9 +562,7 @@ public class CalenderDetail extends AppCompatActivity{
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
                 } else {
-                    bodyAdapter.addItem(ContextCompat.getDrawable(CalenderDetail.this,R.drawable.ic_baseline_person_24),"몸무게 : 00.0 kg", "골격근 : 00.0 kg", "체지방 : 00.0 kg");
-                    bodyAdapter.notifyDataSetChanged();
-                    listBody.setAdapter(bodyAdapter);
+                    txtNonData_body.setVisibility(View.VISIBLE);
                 }
 
             }

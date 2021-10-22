@@ -17,9 +17,6 @@ public class AddRunData {
     @SerializedName("runTime_m")
     int runTime_m;
 
-//    @SerializedName("runTime")
-//    String runTime;
-//
     @SerializedName("runMain")
     String runMain;
 

@@ -34,35 +34,7 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalViewHolder> {
         }
     }
 
-    /*public interface OnItemClickListener{
-        void onItemClick(View v, int pos);
-    }
 
-    private OnItemClickListener mListener;
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.mListener = listener ;
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ViewHolder(View itemView){
-            super(itemView);
-
-            itemView.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    int pos = getAdapterPosition() ;
-                    if (pos != RecyclerView.NO_POSITION) {
-                        if (mListener != null) {
-                            mListener.onItemClick(v, pos) ;
-                            Log.e("pos >> ",Integer.toString(pos));
-                        }
-                    }
-                }
-            });
-        }
-    }
-*/
     public void setData(ArrayList<VerticalData> list){
 
         verticalDatas = list;

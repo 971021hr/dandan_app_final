@@ -191,7 +191,7 @@ public class menu_addmeal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String mealDate = sdf.format(c.getTime());
-               String mealTime = sdf2.format(c.getTime());
+                String mealTime = sdf2.format(c.getTime());
                 //String mealTime = meal_time.getText().toString();
 
                 String email = SharedPreference.getAttribute(getBaseContext(), "userEmail");
