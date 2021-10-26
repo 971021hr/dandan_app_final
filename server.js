@@ -678,8 +678,8 @@ app.post('/user/data/run', function (req, res) {
 
                 for (var i=0; i<result.length; i++) {
                     runTime_h[i] = result[i].runTime_h;
-                    runTime_m[i] = result[i].runTime_m;
-                    runTime[i] = runTime_h[i] + runTime_m[i];
+                    // runTime_m[i] = result[i].runTime_m;
+                    runTime[i] = runTime_h[i];
                 }
 
                 console.log(resultCode);

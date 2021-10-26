@@ -16,7 +16,7 @@ import android.preference.PreferenceManager;
 
 public class RetrofitClient {
 
-    private final static String BASE_URL = "http://192.168.0.5:3000";
+    private final static String BASE_URL = "http://192.168.0.7:3000";
     private static Retrofit retrofit = null;
 
     private RetrofitClient() {

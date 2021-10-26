@@ -117,7 +117,7 @@ public class Modify_run extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SimpleResponse> call, Throwable t) {
-                Toast.makeText(Modify_run.this, "수정 실패패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Modify_run.this, "수정 실패", Toast.LENGTH_SHORT).show();
                finish();
 
             }
@@ -148,17 +148,18 @@ public class Modify_run extends AppCompatActivity {
 
                     run_date.setText(strRunDate);
 
-                    if (runHour == 0){
-                        spinner_hour.setSelection(0);
-                    }else if(runHour == 60){
-                        spinner_hour.setSelection(1);
-                    }else if (runHour == 120){
-                        spinner_hour.setSelection(2);
-                    }else if (runHour == 180){
-                        spinner_hour.setSelection(3);
-                    }else{
-                        spinner_hour.setSelection(4);
-                    }
+                    spinner_hour.setSelection(runHour);
+//                    if (runHour == 0){
+//                        spinner_hour.setSelection(0);
+//                    }else if(runHour == 60){
+//                        spinner_hour.setSelection(1);
+//                    }else if (runHour == 120){
+//                        spinner_hour.setSelection(2);
+//                    }else if (runHour == 180){
+//                        spinner_hour.setSelection(3);
+//                    }else{
+//                        spinner_hour.setSelection(4);
+//                    }
 
                     spinner_min.setSelection(runMin);
                     mainRunText.setText(str_mainRun);
