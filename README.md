@@ -29,8 +29,9 @@
 - 임혜림 (https://github.com/HyerimLim)
 - 차현경 (https://github.com/CHA-HK)
 
-#### 프로젝트 구조
-: 프로토타입 사진 캡쳐
+#### 프로젝트 흐름도
+
+#### 안드로이드 프로토타입
 
 #### 사용된 라이브러리
 - material-calendarview
