@@ -3,7 +3,7 @@
 ### Dandan Smartmirror Project_Application
 한이음 프로젝트(공모전 입선)
 
-#### 목차<br>
+## 목차<br>
 [1. 소개](#소개)<br>
 [2. 프로젝트 개요](#프로젝트-개요)<br>
 [3. 주요 기능](#주요-기능)<br>
@@ -13,6 +13,7 @@
 [7. 안드로이드 프로토타입](#안드로이드-프로토타입)<br>
 [8. 프로젝트 동작 기능](#프로젝트-동작-기능)<br>
 [9. 사용된 라이브러리](#사용된-라이브러리)<br>
+[10. 사용된 node.js 정리](#사용된-node.js-정리)<br>
 
 ## 소개
 - 스마트미러 프로젝트를 진행하며, 함께 필요한 어플리케이션을 제작했습니다. 
@@ -36,9 +37,9 @@
 - 2021년 02월 ~ 10월
 
 ## 팀원
-- 방세미 (https://github.com/semibang)
-- 임혜림 (https://github.com/HyerimLim)
-- 차현경 (https://github.com/CHA-HK)
+- [방세미](https://github.com/semibang)
+- [임혜림](https://github.com/HyerimLim)
+- [차현경](https://github.com/CHA-HK)
 
 ## 프로젝트 흐름도
 ![프로젝트 흐름도](https://user-images.githubusercontent.com/31493835/139018333-284b23c8-17b4-4f99-88de-598ae87060a6.png)
@@ -63,3 +64,6 @@
 - mail / additionnal / activation : 앱에서 메일 발송을 하기 위한 라이브러리
 - tedpermission : 차트 생성을 위한 라이브러리
 - retrofit2 : 서버 연결을 위한 라이브러리
+
+## 사용된 node.js 정리
+- 
