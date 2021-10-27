@@ -5,7 +5,7 @@
 
 #### 소개
 - 스마트미러 프로젝트를 진행하며, 함께 필요한 어플리케이션을 제작했습니다. 
-- 다양한 정보를 기록하고 확인할 수 있습니다.
+- (건강과 관련한)다양한 정보를 기록하고 확인할 수 있습니다.
 
 #### 프로젝트 개요
 - 스마트미러와 연결을 진행할 수 있는 앱입니다.
@@ -30,15 +30,19 @@
 - 차현경 (https://github.com/CHA-HK)
 
 #### 프로젝트 흐름도
+![프로젝트 흐름](https://user-images.githubusercontent.com/31493835/139016069-38de9173-04fc-4650-8905-4edcbb98fb4a.PNG)
+전체적인 프로젝트 흐름은 다음과 같습니다. 현재 깃은 안드로이드만 다루고 있으며 스마트미러와 관련한 깃은 하단 링크를 참조해주시길 바랍니다.
+
 
 #### 안드로이드 프로토타입
+![안드로이드 프로토타입](https://user-images.githubusercontent.com/31493835/139015717-61eb88ec-1141-4a11-8e11-539e7464c93d.jpg)
 
 #### 사용된 라이브러리
-- material-calendarview
-- swipemenulistview
-- mail / additionnal / activation
-- tedpermission
-- retrofit2
+- material-calendarview : 커스텀 달력 생성을 위한 라이브러리
+- swipemenulistview : 스와이프 동작으로 수정,삭제 구현을 위한 라이브러리
+- mail / additionnal / activation : 앱에서 메일 발송을 하기 위한 라이브러리
+- tedpermission : 차트 생성을 위한 라이브러리
+- retrofit2 : 서버 연결을 위한 라이브러리
 
 
 #### 프로젝트 동작 기능
