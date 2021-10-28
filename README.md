@@ -2,7 +2,7 @@
 
 ### Dandan Smartmirror Project_Application
 한이음 프로젝트(공모전 입선)<br>
-[프로젝트 영상 보러가기](https://youtu.be/FSZmFeDqEtk)
+[프로젝트 영상 보러가기](https://youtu.be/FSZmFeDqEtk)<br>
 [안드로이드 전체 영상 보러가기](https://youtu.be/PzXwCY-_qAM)
 
 ## 목차<br>
