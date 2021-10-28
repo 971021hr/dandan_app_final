@@ -3,6 +3,7 @@
 ### Dandan Smartmirror Project_Application
 한이음 프로젝트(공모전 입선)<br>
 [프로젝트 영상 보러가기](https://youtu.be/FSZmFeDqEtk)
+[안드로이드 전체 영상 보러가기](https://youtu.be/PzXwCY-_qAM)
 
 ## 목차<br>
 [1. 소개](#소개)<br>
@@ -47,7 +48,7 @@
 ![프로젝트 흐름도](https://user-images.githubusercontent.com/31493835/139018333-284b23c8-17b4-4f99-88de-598ae87060a6.png)
 - 전체적인 프로젝트 흐름은 다음과 같습니다. 
 - 현재 깃은 안드로이드만 다루고 있으며 스마트미러와 관련한 깃은 하단 링크를 참조해주시길 바랍니다.
-> https://github.com/semibang/DanDan.git
+> https://github.com/971021hr/tantan_webproject
 
 
 ## 안드로이드 프로토타입
