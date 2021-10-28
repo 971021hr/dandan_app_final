@@ -57,18 +57,32 @@
 1. calender
 > <img src="https://user-images.githubusercontent.com/31493835/139171771-26f67a2b-1ce8-45e4-a2bc-3646d9191700.gif"  width="180" height="320"/><br>
 > - 어플의 메인 화면이자 달력 화면입니다.
+> - Dot가 있는 날짜를 선택하면 상세 페이지로 이동합니다.
+> - 상세 페이지에서 다양한 기록을 확인할 수 있으며, 수정, 삭제가 가능합니다.
+> - 상세 페이지 상단에 있는 날짜를 클릭해 달력 페이지로 돌아갈 수 있습니다.
+
 2. community
 > <img src="https://user-images.githubusercontent.com/31493835/139171898-958a1520-0162-4bad-b4e7-7789718b53af.gif"  width="180" height="320"/><br>
 > - 커뮤니티 탭 화면입니다.
+> - 사용자는 운동과 식단 관련한 정보를 어플에서 얻을 수 있습니다.
+
 3. add
 > <img src="https://user-images.githubusercontent.com/31493835/139171929-48c9ff69-0b09-46fb-90cb-9f64066d3c67.gif"  width="180" height="320"/><br>
 >  - 추가 탭 화면입니다.
+>  - 운동, 물, 식단, 신체 정보를 입력할 수 있습니다.
+
 4. chart
 > <img src="https://user-images.githubusercontent.com/31493835/139171972-38102c08-70d3-4c61-b5b1-a294aaa78328.gif"  width="180" height="320"/><br>
 > - 차트 탭 화면입니다.
+> - 일주일, 한 달, 일 년 단위로 변화를 확인할 수 있습니다.
+
 5. setting
 > <img src="https://user-images.githubusercontent.com/31493835/139172020-2aaf12e3-73ff-4318-a959-f4c5d65d721c.gif"  width="180" height="320"/><br>
 > - 설정 탭 화면입니다.
+> - 회원가입, 로그인, 로그아웃을 할 수 있습니다.
+> - 스마트미러와 연결할 수 있습니다.
+> - 어플과 관련한 공지사항과 도움말을 확인할 수 있습니다.
+> - 메일을 통해 개발자에게 피드백을 할 수 있습니다.
 
 ## 사용된 라이브러리
 - material-calendarview : 커스텀 달력 생성을 위한 라이브러리
@@ -124,3 +138,4 @@
   - 설정 - 스마트미러 연결
 
 ## 사용된 DB Table 목록 정리
+![DBtable](https://user-images.githubusercontent.com/31493835/139174486-81a4dae5-000b-4b2a-9617-91a95fd25ac4.png)
