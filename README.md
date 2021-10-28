@@ -1,9 +1,12 @@
 # dandan_app_final
 
 ### Dandan Smartmirror Project_Application
+
+<img src="https://user-images.githubusercontent.com/31493835/139200109-0af92dd6-c1e5-451c-99cc-8636d6954762.png"  width="320" height="320"/><br>
 한이음 프로젝트(공모전 입선)<br>
 [프로젝트 영상 보러가기](https://youtu.be/Zfjd85sxkeU)<br>
 [안드로이드 전체 영상 보러가기](https://youtu.be/PzXwCY-_qAM)
+
 
 ## 목차<br>
 [1. 소개](#소개)<br>
