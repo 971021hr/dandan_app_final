@@ -1,7 +1,8 @@
 # dandan_app_final
 
 ### Dandan Smartmirror Project_Application
-한이음 프로젝트(공모전 입선)
+한이음 프로젝트(공모전 입선)<br>
+[프로젝트 영상 보러가기](https://youtu.be/FSZmFeDqEtk)
 
 ## 목차<br>
 [1. 소개](#소개)<br>
@@ -14,6 +15,7 @@
 [8. 프로젝트 동작 기능](#프로젝트-동작-기능)<br>
 [9. 사용된 라이브러리](#사용된-라이브러리)<br>
 [10. 사용된 node.js 목록 정리](#사용된-node-js-목록-정리)<br>
+[11. 사용된 DB Table 목록 정리](#사용된-db-table-목록-정리)<br>
 
 ## 소개
 - 스마트미러 프로젝트를 진행하며, 함께 필요한 어플리케이션을 제작했습니다. 
@@ -53,10 +55,20 @@
 
 ## 프로젝트 동작 기능
 1. calender
+> <img src="https://user-images.githubusercontent.com/31493835/139171771-26f67a2b-1ce8-45e4-a2bc-3646d9191700.gif"  width="180" height="320"/><br>
+> - 어플의 메인 화면이자 달력 화면입니다.
 2. community
+> <img src="https://user-images.githubusercontent.com/31493835/139171898-958a1520-0162-4bad-b4e7-7789718b53af.gif"  width="180" height="320"/><br>
+> - 커뮤니티 탭 화면입니다.
 3. add
+> <img src="https://user-images.githubusercontent.com/31493835/139171929-48c9ff69-0b09-46fb-90cb-9f64066d3c67.gif"  width="180" height="320"/><br>
+>  - 추가 탭 화면입니다.
 4. chart
+> <img src="https://user-images.githubusercontent.com/31493835/139171972-38102c08-70d3-4c61-b5b1-a294aaa78328.gif"  width="180" height="320"/><br>
+> - 차트 탭 화면입니다.
 5. setting
+> <img src="https://user-images.githubusercontent.com/31493835/139172020-2aaf12e3-73ff-4318-a959-f4c5d65d721c.gif"  width="180" height="320"/><br>
+> - 설정 탭 화면입니다.
 
 ## 사용된 라이브러리
 - material-calendarview : 커스텀 달력 생성을 위한 라이브러리
@@ -111,4 +123,4 @@
   - 설정 - 도움말 - 상세보기
   - 설정 - 스마트미러 연결
 
-
+## 사용된 DB Table 목록 정리
