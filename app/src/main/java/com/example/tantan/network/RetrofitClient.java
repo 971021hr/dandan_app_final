@@ -16,7 +16,7 @@ import android.preference.PreferenceManager;
 
 public class RetrofitClient {
 
-    private final static String BASE_URL = "http://192.168.0.7:3000";
+    private final static String BASE_URL = "";       // ""에 http://192.xxx.xxx.xxx:3000 형식으로 작성
     private static Retrofit retrofit = null;
 
     private RetrofitClient() {

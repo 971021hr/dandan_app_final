@@ -2,6 +2,7 @@ package com.example.tantan.ui.menu_calendar;
 
 import android.graphics.drawable.Drawable;
 
+// BodyAdapter에 들어갈 목록
 public class BodyItem {
 
     private Drawable bodyImg;

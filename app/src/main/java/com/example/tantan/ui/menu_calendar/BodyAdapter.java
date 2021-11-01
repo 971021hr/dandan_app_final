@@ -13,6 +13,7 @@ import com.example.tantan.R;
 
 import java.util.ArrayList;
 
+// 달력 - 상세보기 이후 swipe로 body를 수정,삭제하기 위해 구현
 public class BodyAdapter extends BaseAdapter {
 
     private ArrayList<BodyItem> bodyItemArrayList = new ArrayList<BodyItem>();

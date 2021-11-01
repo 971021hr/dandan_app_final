@@ -8,6 +8,7 @@ import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 import java.util.Collection;
 import java.util.HashSet;
 
+// 달력 메인화면에서 데이터가 있는 경우 dot 찍을 때를 위해 작성
 public class EventDecorator implements DayViewDecorator {
     private final int color;
     private final HashSet<CalendarDay> dates;
