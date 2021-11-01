@@ -15,10 +15,10 @@ app.listen(3000, function () {
 });
 
 var connection = mysql.createConnection({
-    host     : 'database-1.cj61bbiht7nz.us-east-2.rds.amazonaws.com',
-    user     : 'tantan_db',
-    database : 'tantanDB',
-    password : 'tantan21!',
+    host     : '',                          //아마존 서버 host
+    user     : '',                          //아마존에서 사용하는 user name
+    database : '',                          //아마존 DB name
+    password : '',                          //아마존 DB password
     port     : 3306
 });
 
@@ -139,7 +139,7 @@ app.post('/user/join', function (req, res) {
                         'code': resultCode,
                         'message': message
                     });
-        
+
                 } else {
                     resultCode = 200;
                     message = '회원가입에 성공했습니다.';
@@ -182,7 +182,7 @@ app.post('/user/password', function (req, res) {
     var sql2 = 'SELECT * FROM tantanDB.userTB WHERE userEmail = ?';
 
     connection.query(sql2, userEmail, function (err, result) {
-        
+
 
         if (err) {
             resultCode = 404;
@@ -194,9 +194,9 @@ app.post('/user/password', function (req, res) {
                 'message': message
             });
         } else {
-      
+
             if (result.length === 0) {
-                
+
                 resultCode = 204;
                 message = '회원가입 이력이 없습니다.';
 
@@ -206,7 +206,7 @@ app.post('/user/password', function (req, res) {
                 });
             } else {
                 connection.query(sql, params, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "update 구문 오류"
@@ -217,7 +217,7 @@ app.post('/user/password', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = '임시비밀번호로 변경 성공! ';
 
@@ -225,16 +225,16 @@ app.post('/user/password', function (req, res) {
                             'code': resultCode,
                             'message': message
                         });
-            
+
                     }
-        
+
                 })
-                
+
             }
         }
-        
+
     });
-    
+
 });
 
 //목차 - 설정 - 개인정보 - 닉네임(이름) 변경
@@ -243,11 +243,11 @@ app.post('/user/name', function (req, res) {
     var userName = req.body.userName;
 
 
-    
+
 
     var sql = 'UPDATE tantanDB.userTB SET userName = ? WHERE userEmail = ?';
     var params = [userName,userEmail];
-    
+
 
     connection.query(sql, params, function (err, result) {
         var resultCode = 404;
@@ -293,7 +293,7 @@ app.post('/user/leave', function (req, res) {
             connection.query(sql, userEmail, function (err, result) {
                 if (err) {
                     console.log(err);
-        
+
                 } else {
                     resultCode = 208;
                     message = '탈퇴에 성공하였습니다.';
@@ -315,7 +315,7 @@ app.post('/user/leave', function (req, res) {
                 'message': message
             });
         }
-        
+
     });
 });
 
@@ -386,7 +386,7 @@ app.post('/user/add/run', function (req, res) {
                         'code': resultCode,
                         'message': message
                     });
-        
+
                 } else {
                     resultCode = 200;
                     message = '신체 추가 성공';
@@ -416,7 +416,7 @@ app.post('/user/add/run', function (req, res) {
 app.post('/user/water', function (req, res) {
     console.log("물 추가 들어옴");
     console.log(req.body);
-    
+
     var userEmail = req.body.userEmail;
     var waterDate = req.body.waterDate;
     var waterMl = req.body.waterMl;
@@ -428,7 +428,7 @@ app.post('/user/water', function (req, res) {
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
-        
+
         } else {
             resultCode = 212;
             message = '물 추가 성공';
@@ -507,7 +507,7 @@ app.post('/user/body', function (req, res) {
         }
 
     })
-    
+
 });
 
 
@@ -568,9 +568,9 @@ app.post('/user/data/total', function (req, res) {
                 'arrLength' : arrLength,
                 'result': result
             });
-            
+
         } else {
-            
+
             if (result.length === 0) {
                 resultCode = 202;
                 arrLength = 0;
@@ -591,10 +591,10 @@ app.post('/user/data/total', function (req, res) {
                 message = '데이터 가져오기 성공';
 
                 for(var i = 0; i < arrLength; i++){
-                    
+
                     dotDate[i] = result[i].bodyDate;
                     //d_runID += String(result[i].runID) + "/";
-                    
+
                 }
 
                 console.log(resultCode);
@@ -645,9 +645,9 @@ app.post('/user/data/run', function (req, res) {
                 'arrLength' : arrLength,
                 'result': result
             });
-            
+
         } else {
-            
+
             if (result.length === 0) {
                 resultCode = 202;
                 arrLength = 0;
@@ -673,7 +673,7 @@ app.post('/user/data/run', function (req, res) {
                     d_runMain += result[i].runMain + "/";
                     d_runSub += result[i].runSub + "/";
                     d_runID += String(result[i].runID) + "/";
-                    
+
                 }
 
                 for (var i=0; i<result.length; i++) {
@@ -715,11 +715,11 @@ app.post('/user/data/water', function (req, res) {
         var message = '에러가 발생했습니다';
 
         if (err) {
-        
+
             console.log(err);
-            
+
         } else {
-            
+
             if (result.length === 0) {
                 resultCode = 202;
                 arrLength = 0;
@@ -764,7 +764,7 @@ app.post('/user/data/body', function (req, res) {
 
         if (err) {
             console.log(err);
-        
+
         } else if (result[0] !== undefined) {
             resultCode = 200;
             message = '신체 출력 확인';
@@ -795,7 +795,7 @@ app.post('/user/data/body', function (req, res) {
 
             }
 
-            
+
 
         } else if (result[0] == undefined) {
             resultCode = 400;
@@ -827,7 +827,7 @@ app.post('/user/data/meal', function (req, res) {
 
         if (err) {
             console.log(err);
-        
+
         } else if (result[0] !== undefined) {
 
             resultCode = 200;
@@ -875,12 +875,12 @@ app.post('/user/data/community/meal', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.userTB WHERE userEmail = ?';
 
     connection.query(sql, userEmail, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
-            
+
             console.log(err);
 
             res.json({
@@ -917,7 +917,7 @@ app.post('/user/data/community/meal', function (req, res) {
                         resultCode = 202;
                         arrLength = 0;
                         message = '식단 커뮤니티가 없습니다.';
-    
+
 
                         res.json({
                             'code': resultCode,
@@ -926,8 +926,8 @@ app.post('/user/data/community/meal', function (req, res) {
                             'userAuto' : userAuto,
                             'arrLength' : arrLength
                         });
-        
-        
+
+
                     }else{
 
                         for(var i = 0; i < arrLength; i++){
@@ -935,7 +935,7 @@ app.post('/user/data/community/meal', function (req, res) {
                         }
 
                         resultCode = 200;
-                        
+
                         message = '식단 커뮤니티 불러오기 성공'
 
 
@@ -954,7 +954,7 @@ app.post('/user/data/community/meal', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -971,12 +971,12 @@ app.post('/user/data/community/run', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.userTB WHERE userEmail = ?';
 
     connection.query(sql, userEmail, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
-            
+
             console.log(err);
 
             res.json({
@@ -1013,7 +1013,7 @@ app.post('/user/data/community/run', function (req, res) {
                         resultCode = 202;
                         arrLength = 0;
                         message = '운동 커뮤니티가 없습니다.';
-        
+
                         console.log(resultCode);
 
                         res.json({
@@ -1023,8 +1023,8 @@ app.post('/user/data/community/run', function (req, res) {
                             'userAuto' : userAuto,
                             'arrLength' : arrLength
                         });
-        
-        
+
+
                     }else{
 
                         for(var i = 0; i < arrLength; i++){
@@ -1032,7 +1032,7 @@ app.post('/user/data/community/run', function (req, res) {
                         }
 
                         resultCode = 200;
-                           
+
                         message = '운동 커뮤니티 불러오기 성공'
 
                         res.json({
@@ -1050,7 +1050,7 @@ app.post('/user/data/community/run', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -1068,7 +1068,7 @@ app.post('/user/data/community/meal/detail', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.communityTB where tipType = 1 order by tipID limit ?,1';
 
     connection.query(sql, tipNum, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
@@ -1107,7 +1107,7 @@ app.post('/user/data/community/meal/detail', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -1124,12 +1124,12 @@ app.post('/user/data/community/run/detail', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.communityTB where tipType = 2 order by tipID limit ?,1';
 
     connection.query(sql, tipNum, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
-            
+
             console.log(err);
 
             res.json({
@@ -1163,7 +1163,7 @@ app.post('/user/data/community/run/detail', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -1184,7 +1184,7 @@ app.post('/user/data/notice', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.userTB WHERE userEmail = ?';
 
     connection.query(sql, userEmail, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
@@ -1205,7 +1205,7 @@ app.post('/user/data/notice', function (req, res) {
         } else {
 
             userAuto = result[0].userAuto;
-            
+
             var sql2 = 'SELECT * FROM tantanDB.noticeTB order by noticePri asc, noticeID desc';
 
             connection.query(sql2, function(err, result){
@@ -1230,7 +1230,7 @@ app.post('/user/data/notice', function (req, res) {
                         resultCode = 202;
                         arrLength = 0;
                         message = '공지사항이 없습니다.';
-    
+
 
                         res.json({
                             'code': resultCode,
@@ -1241,8 +1241,8 @@ app.post('/user/data/notice', function (req, res) {
                             'userAuto' : userAuto,
                             'arrLength' : arrLength
                         });
-        
-        
+
+
                     }else{
 
                         for(var i = 0; i < arrLength; i++){
@@ -1252,7 +1252,7 @@ app.post('/user/data/notice', function (req, res) {
                         }
 
                         resultCode = 200;
-                        
+
                         message = '공지사항 불러오기 성공'
 
                         res.json({
@@ -1272,7 +1272,7 @@ app.post('/user/data/notice', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -1305,7 +1305,7 @@ app.post('/user/data/notice/detail', function (req, res) {
                 'noticeDate' : noticeDate,
                 'noticeText' : noticeText,
                 'noticePri' : noticePri
-    
+
             });
         } else {
             resultCode = 200;
@@ -1324,9 +1324,9 @@ app.post('/user/data/notice/detail', function (req, res) {
                 'noticeDate' : noticeDate,
                 'noticeText' : noticeText,
                 'noticePri' : noticePri
-    
+
             });
-            
+
         }
 
 
@@ -1344,12 +1344,12 @@ app.post('/user/data/help', function (req, res) {
     var sql = 'SELECT * FROM tantanDB.userTB WHERE userEmail = ?';
 
     connection.query(sql, userEmail, function (err, result) {
-        
+
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
-        
+
             console.log(err);
 
             res.json({
@@ -1363,7 +1363,7 @@ app.post('/user/data/help', function (req, res) {
         } else {
 
             userAuto = result[0].userAuto;
-            
+
             var sql2 = 'SELECT * FROM tantanDB.faqTB order by faqID';
 
             connection.query(sql2, function(err, result){
@@ -1395,8 +1395,8 @@ app.post('/user/data/help', function (req, res) {
                             'userAuto' : userAuto,
                             'arrLength' : arrLength,
                         });
-        
-        
+
+
                     }else{
 
                         for(var i = 0; i < arrLength; i++){
@@ -1404,7 +1404,7 @@ app.post('/user/data/help', function (req, res) {
                         }
 
                         resultCode = 200;
-                        
+
                         message = '도움말 불러오기 성공'
 
                         res.json({
@@ -1422,7 +1422,7 @@ app.post('/user/data/help', function (req, res) {
 
         }
 
-        
+
 
     });
 });
@@ -1452,7 +1452,7 @@ app.post('/user/data/help/detail', function (req, res) {
                 'message': message,
                 'faqTitle' : faqTitle,
                 'faqText' : faqText
-    
+
             });
         } else {
             resultCode = 200;
@@ -1466,9 +1466,9 @@ app.post('/user/data/help/detail', function (req, res) {
                 'message': message,
                 'faqTitle' : faqTitle,
                 'faqText' : faqText
-    
+
             });
-            
+
         }
 
 
@@ -1497,9 +1497,9 @@ app.post('/user/data/connect', function (req, res) {
                 'message': message
             });
         } else {
-      
+
             if (result.length === 0) {
-                
+
                 resultCode = 204;
                 message = '해당 랜덤값 없음.';
 
@@ -1515,7 +1515,7 @@ app.post('/user/data/connect', function (req, res) {
                 var params = [userEmail,conID];
 
                 connection.query(sql2, params, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "update 구문 에러"
@@ -1526,7 +1526,7 @@ app.post('/user/data/connect', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = '스마트미러 연결 성공 ';
 
@@ -1536,11 +1536,11 @@ app.post('/user/data/connect', function (req, res) {
                             'code': resultCode,
                             'message': message
                         });
-            
+
                     }
-        
+
                 })
-                
+
             }
         }
     })
@@ -1562,14 +1562,14 @@ app.post('/user/stats/time', function (req, res) {
     var params = [userEmail, startDate, endDate];
 
     var sql2 = 'SELECT userEmail, sum(runTime_h)+sum(runTime_m) as runTime, runDate FROM tantanDB.addRunTB WHERE userEmail = ? and runDate between ? and ? group by runDate ORDER BY runDate asc';
-    
+
     connection.query(sql2, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
             console.log(err);
-        
+
         } else {
             resultCode = 200;
             message = '통계 출력 확인';
@@ -1584,10 +1584,10 @@ app.post('/user/stats/time', function (req, res) {
                 }
             }
 
-            
+
         }
 
-        
+
         res.json({
             'code': resultCode,
             'message': message,
@@ -1612,14 +1612,14 @@ app.post('/user/stats/time/year', function (req, res) {
     var params = [userEmail, startDate, endDate];
 
     var sql2 = 'SELECT runDate, sum(runTime_h)+sum(runTime_m) as totalTime FROM tantanDB.addRunTB where userEmail = ? and runDate between ? and ? group by Left(runDate,7) ORDER BY runDate asc';
-    
+
     connection.query(sql2, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
             console.log(err);
-        
+
         } else {
             resultCode = 200;
             message = '통계 출력 확인';
@@ -1630,12 +1630,12 @@ app.post('/user/stats/time/year', function (req, res) {
             }else{
                 for (var i=0; i<result.length; i++) {
                     runDate[i] = result[i].runDate;
-                    runTime[i] = result[i].runTime;
+                    runTime[i] = result[i].totalTime;
                 }
             }
 
         }
-        
+
         res.json({
             'code': resultCode,
             'message': message,
@@ -1674,7 +1674,7 @@ app.post('/user/stats/week', function (req, res) {
     var userEmail = req.body.userEmail;
     var startDate = req.body.dateStart;
     var endDate = req.body.dateEnd;
-    
+
     var params = [userEmail, startDate, endDate];
 
     var bodydate = [];
@@ -1683,7 +1683,7 @@ app.post('/user/stats/week', function (req, res) {
     var bodyfat = [];
 
     var sql = 'SELECT bodyDate, bodyWeight, bodyMuscle, bodyFat FROM tantanDB.addBodyTB WHERE userEmail = ? and bodyDate between ? and ? ORDER BY bodyDate asc';
-    
+
     connection.query(sql, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
@@ -1695,7 +1695,7 @@ app.post('/user/stats/week', function (req, res) {
                 'code': resultCode,
                 'message': message
             });
-        
+
         } else {
             if(result.length === 0){
                 resultCode = 204;
@@ -1729,8 +1729,8 @@ app.post('/user/stats/week', function (req, res) {
             }
 
         }
-        
-        
+
+
 
 
     });
@@ -1741,7 +1741,7 @@ app.post('/user/stats/month', function (req, res) {
     var userEmail = req.body.userEmail;
     var startDate = req.body.dateStart;
     var endDate = req.body.dateEnd;
-    
+
     var params = [userEmail, startDate, endDate];
 
     var bodydate = [];
@@ -1750,14 +1750,14 @@ app.post('/user/stats/month', function (req, res) {
     var bodyfat = [];
 
     var sql = 'SELECT bodyDate, bodyWeight, bodyMuscle, bodyFat FROM tantanDB.addBodyTB WHERE userEmail = ? and bodyDate between ? and ? ORDER BY bodyDate asc';
-    
+
     connection.query(sql, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
             console.log(err);
-        
+
         } else {
             if(result.length === 0){
                 resultCode = 204;
@@ -1790,7 +1790,7 @@ app.post('/user/stats/month', function (req, res) {
                 });
             }
         }
-        
+
     });
 
 
@@ -1802,7 +1802,7 @@ app.post('/user/stats/year', function (req, res) {
     var userEmail = req.body.userEmail;
     var startDate = req.body.dateStart;
     var endDate = req.body.dateEnd;
-    
+
     var params = [userEmail, startDate, endDate];
 
     var bodydate = [];
@@ -1811,14 +1811,14 @@ app.post('/user/stats/year', function (req, res) {
     var bodyfat = [];
 
     var sql = 'SELECT bodyDate,round(avg(bodyWeight),2) as bodyWeight , round(avg(bodyMuscle),2) as bodyMuscle, round(avg(bodyFat) , 2) as bodyFat FROM tantanDB.addBodyTB where userEmail = ? and bodyDate between ? and ? group by Left( bodyDate,7) ORDER BY bodyDate asc';
-    
+
     connection.query(sql, params, function (err, result) {
         var resultCode = 404;
         var message = '에러가 발생했습니다';
 
         if (err) {
             console.log(err);
-        
+
         }  else {
             if(result.length === 0){
                 resultCode = 204;
@@ -1885,7 +1885,7 @@ app.post('/user/data/run/delete', function (req, res) {
                 var runID = result[0].runID;
 
                 connection.query(sql2, runID, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "delete 실패"
@@ -1896,7 +1896,7 @@ app.post('/user/data/run/delete', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = 'delete 성공';
 
@@ -1906,11 +1906,11 @@ app.post('/user/data/run/delete', function (req, res) {
                             'code': resultCode,
                             'message': message
                         });
-            
+
                     }
-        
+
                 })
-            
+
         }
     })
 });
@@ -1941,7 +1941,7 @@ app.post('/user/data/meal/delete', function (req, res) {
                 var mealID = result[0].mealID;
 
                 connection.query(sql2, mealID, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "delete 실패"
@@ -1952,7 +1952,7 @@ app.post('/user/data/meal/delete', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = 'delete 성공';
 
@@ -1962,11 +1962,11 @@ app.post('/user/data/meal/delete', function (req, res) {
                             'code': resultCode,
                             'message': message
                         });
-            
+
                     }
-        
+
                 })
-            
+
         }
     })
 });
@@ -1997,7 +1997,7 @@ app.post('/user/data/run/modify', function (req, res) {
                 var runID = result[0].runID;
 
                 connection.query(sql2, runID, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "delete 실패"
@@ -2008,12 +2008,12 @@ app.post('/user/data/run/modify', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = 'select 성공';
 
                         console.log(result);
-                        
+
                         var runTime_h = result[0].runTime_h;
                         var runTime_m = result[0].runTime_m;
                         var runMain = result[0].runMain;
@@ -2029,11 +2029,11 @@ app.post('/user/data/run/modify', function (req, res) {
                             'runMain' : runMain,
                             'runSub' : runSub
                         });
-            
+
                     }
-        
+
                 })
-            
+
         }
     })
 });
@@ -2052,7 +2052,7 @@ app.post('/user/data/run/modify/update', function (req, res) {
 
     connection.query(sql, params, function (err, result) {
 
-           
+
         if (err) {
             resultCode = 404;
             message = "update 실패"
@@ -2076,7 +2076,7 @@ app.post('/user/data/run/modify/update', function (req, res) {
             });
 
         }
-        
+
     })
 });
 
@@ -2106,7 +2106,7 @@ app.post('/user/data/meal/modify', function (req, res) {
                 var mealID = result[0].mealID;
 
                 connection.query(sql2, mealID, function (err, result) {
-            
+
                     if (err) {
                         resultCode = 404;
                         message = "select 실패"
@@ -2117,7 +2117,7 @@ app.post('/user/data/meal/modify', function (req, res) {
                             'message': message
                         });
                     } else {
-           
+
                         resultCode = 200;
                         message = 'select 성공';
 
@@ -2137,11 +2137,11 @@ app.post('/user/data/meal/modify', function (req, res) {
                             'mealPicturePath' : mealPicturePath,
                             'mealMemo' : mealMemo
                         });
-            
+
                     }
-        
+
                 })
-            
+
         }
     })
 });
@@ -2164,7 +2164,7 @@ app.post('/user/data/meal/modify/update', function (req, res) {
 
         console.log(params)
 
-           
+
         if (err) {
             resultCode = 404;
             message = "update 실패"
@@ -2188,18 +2188,6 @@ app.post('/user/data/meal/modify/update', function (req, res) {
             });
 
         }
-        
+
     })
 });
-
-
-app.get('/user/login', (req, res) => { // getUserData 경로에 GET 요청이 왔을 경우
-    console.log(`param userId : ${req.query.id}`)
-    connection.query(
-      `SELECT * FROM tantanDB.userTB WHERE userId = ${req.query.id};`, // 전달 받은 id(학번) 의 값으로 학생 조회
-      (err, rows, fields) => { // SQL 문 Callback 함수
-        console.log(rows);
-        res.send(rows);
-      });
-  });
-
