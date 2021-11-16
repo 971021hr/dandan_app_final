@@ -142,3 +142,5 @@
 
 ## 사용된 DB Table 목록 정리
 ![DBtable](https://user-images.githubusercontent.com/31493835/139174486-81a4dae5-000b-4b2a-9617-91a95fd25ac4.png)
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F971021hr%2Fdandan_app_final&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
